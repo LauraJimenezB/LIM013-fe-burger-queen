@@ -34,7 +34,7 @@ de gran ayuda para implementar rápidamente características de los proyectos en
 los que trabajes.
 
 ## 2. Resumen del proyecto
-
+resumen
 Esta vez tenemos un proyecto 100% por encargo. Si bien siempre puedes (y debes)
 hacer sugerencias de mejoras y/o cambios, muchas veces trabajarás en proyectos
 en los que primero hay que asegurarse de cumplir con lo requerido.
