@@ -1,0 +1,26 @@
+{
+  "name": "lim013-fe-burger-queen",
+  "version": "1.0.0",
+  "description": "* [1. Preámbulo](#1-preámbulo)\r * [2. Resumen del proyecto](#2-resumen-del-proyecto)\r * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r * [4. Consideraciones generales](#4-consideraciones-generales)\r * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)\r * [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "serve src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Estefaniamr1/LIM013-fe-burger-queen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Estefaniamr1/LIM013-fe-burger-queen/issues"
+  },
+  "homepage": "https://github.com/Estefaniamr1/LIM013-fe-burger-queen#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0"
+  }
+}
