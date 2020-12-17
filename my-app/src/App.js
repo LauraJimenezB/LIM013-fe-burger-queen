@@ -32,6 +32,9 @@ import {
   Link
 } from "react-router-dom";
 
+
+import ReactDOM from 'react-dom';
+
 export default function App() {
   return (
     <Router>
@@ -94,8 +97,55 @@ function Home() {
 
 
 function About() {
+  return (
+    <div>
+        <header>
+         <img></img>
+         <h1>BURGER QUEEN</h1>
+        </header>
+        <main>
+          <div className="items">   
+           <h2>Menú</h2> 
+           <button>Desayuno</button>
+           <button>Almuerzo y Cena</button>
+           <div id="root"></div>
+           <ul id="desayuno">
+             <li>
+               <a> naranja</a>
+             </li>
+             <li>
+               <a> naranja</a>
+             </li>
+           </ul>
+           <ul id="almuerzo">
+             <li></li>
+           </ul>
+          </div>
+          <div className="order">
+           <input type="text" placeholder="Correo electrónico" id="emailUserJ"/>
+           <input type="text" placeholder="Contraseña" id="passwordUserJ"/>
+           <button type="submit">Ingresar</button>
+          </div>
+        </main>
+      </div>
+      );
+  }
 
-}
+  function ComidaList(props) {
+    const comidas = props.comidas;
+    const listItems = comidas.map((comida) =>
+      <li>{comida}</li>
+    );
+    return (
+      <ul>{listItems}</ul>
+    );
+  }
+  
+  const comidas = [1, 2, 3, 4, 5];
+  ReactDOM.render(
+    <ComidaList comidas={comidas} />,
+    document.getElementById('root')
+  );
 
 function Users() {
   return <h2>Users</h2>;
