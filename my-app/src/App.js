@@ -29,11 +29,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 
 
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 
 export default function App() {
   return (
@@ -59,9 +59,10 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
+          
+          {/* <Route path="/users">
+            <Users /> 
+          </Route>*/}
           <Route path="/">
             <Home />
           </Route>
@@ -129,7 +130,7 @@ function About() {
         </main>
       </div>
       );
-  }
+  
 
   function ComidaList(props) {
     const comidas = props.comidas;
@@ -146,7 +147,8 @@ function About() {
     <ComidaList comidas={comidas} />,
     document.getElementById('root')
   );
-
+}
 function Users() {
   return <h2>Users</h2>;
 }
+
