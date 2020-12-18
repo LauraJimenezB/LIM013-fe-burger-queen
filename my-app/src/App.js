@@ -32,8 +32,9 @@ import {
   Link,
 } from "react-router-dom";
 
+import { React, useState } from 'react';
 
-import ReactDOM, { render } from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 export default function App() {
   return (
@@ -98,6 +99,49 @@ function Home() {
 
 
 function About() {
+  const [vista, setVista] = useState(0);
+
+  function Desayuno () {
+    return (
+      <ul>
+        <li>Café americano</li>
+        <li>Café con leche</li>
+        <li>Sandwich de jamón con queso</li>
+        <li>Jugo de frutas natural</li>
+      </ul>
+    );
+  }
+      
+
+  function Almuerzo () {
+    return (
+      <div>
+        <ul> Hamburguesas
+          <li>Hamburguesa simple</li>
+          <li>Hamburguesa doble</li>
+        </ul>
+        <ul> Acompañamientos
+          <li>Papas fritas</li>
+          <li>Aros de cebolla</li>
+        </ul>
+        <ul> Para tomar
+          <li>Agua 500ml</li>
+          <li>Agua 750ml</li>
+          <li>Bebida/gaseosa 500ml</li>
+          <li>Bebida/gaseosa 750ml</li>
+        </ul>
+      </div>
+    );
+  }
+     
+  const DesayunoClick = () => {
+    console.log('hola');
+    setVista(0);
+  }
+  const AlmuerzoClick = () => {
+    console.log('hola1');
+    setVista(1);
+  }
   return (
     <div>
         <header>
@@ -107,20 +151,9 @@ function About() {
         <main>
           <div className="items">   
            <h2>Menú</h2> 
-           <button>Desayuno</button>
-           <button>Almuerzo y Cena</button>
-           <div id="root"></div>
-           <ul id="desayuno">
-             <li>
-               <a> naranja</a>
-             </li>
-             <li>
-               <a> naranja</a>
-             </li>
-           </ul>
-           <ul id="almuerzo">
-             <li></li>
-           </ul>
+           <button type="button" onClick={DesayunoClick}>Desayuno</button>
+           <button type="button" onClick={AlmuerzoClick}>Almuerzo y Cena</button>
+           { vista == 0 ? <Desayuno/> : <Almuerzo/> }
           </div>
           <div className="order">
            <input type="text" placeholder="Correo electrónico" id="emailUserJ"/>
@@ -131,24 +164,7 @@ function About() {
       </div>
       );
   
-
-  function ComidaList(props) {
-    const comidas = props.comidas;
-    const listItems = comidas.map((comida) =>
-      <li>{comida}</li>
-    );
-    return (
-      <ul>{listItems}</ul>
-    );
-  }
-  
-  const comidas = [1, 2, 3, 4, 5];
-  ReactDOM.render(
-    <ComidaList comidas={comidas} />,
-    document.getElementById('root')
-  );
 }
 function Users() {
   return <h2>Users</h2>;
 }
-
