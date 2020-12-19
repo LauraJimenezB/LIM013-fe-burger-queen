@@ -155,11 +155,6 @@ function About() {
            <button type="button" onClick={AlmuerzoClick}>Almuerzo y Cena</button>
            { vista == 0 ? <Desayuno/> : <Almuerzo/> }
           </div>
-          <div className="order">
-           <input type="text" placeholder="Correo electrónico" id="emailUserJ"/>
-           <input type="text" placeholder="Contraseña" id="passwordUserJ"/>
-           <button type="submit">Ingresar</button>
-          </div>
         </main>
       </div>
       );
