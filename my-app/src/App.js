@@ -32,7 +32,10 @@ import {
   Link
 } from "react-router-dom";
 
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
+import {useCollection} from 'react-firebase-hooks/firestore';
+import firebase from './firebase';
+
 
 // import ReactDOM from 'react-dom';
 
@@ -96,50 +99,59 @@ function Home() {
     );
 }
 
+function useVista () {
+  const [vista, setVista] = useState([]);
+useEffect(() => {
+  firebase.firestore().collection('items').onSnapshot((snapshot)=>{
+    const item = snapshot.docs.map((doc)=> ({
+      nombre: doc.data().nombre,
+      precio: doc.data().precio,
+    }))
+    setVista(item);
+  })
+}, [])
+  return vista;
+}
 
 function About() {
-  const [vista, setVista] = useState(0);
-
-  function Desayuno () {
-    return (
-      <ul>
-        <li>Café americano</li>
-        <li>Café con leche</li>
-        <li>Sandwich de jamón con queso</li>
-        <li>Jugo de frutas natural</li>
-      </ul>
+  const vista = useVista();
+/*
+  const FirestoreCollection = () => {
+    const {value, loading, error} = useCollection(
+      firebase.firestore().collection('items'),
+      {
+        snapshotListenOptions: { includeMetadataChanges: true },
+      }
     );
-  }
-      
-
-  function Almuerzo () {
     return (
       <div>
-        <ul> Hamburguesas
-          <li>Hamburguesa simple</li>
-          <li>Hamburguesa doble</li>
-        </ul>
-        <ul> Acompañamientos
-          <li>Papas fritas</li>
-          <li>Aros de cebolla</li>
-        </ul>
-        <ul> Para tomar
-          <li>Agua 500ml</li>
-          <li>Agua 750ml</li>
-          <li>Bebida/gaseosa 500ml</li>
-          <li>Bebida/gaseosa 750ml</li>
-        </ul>
+        <p>
+          {error && <strong>Error: {JSON.stringify(error)}</strong>}
+          {loading && <span>Collection: Loading...</span>}
+          {value && (
+            <span>
+              Collection:{' '}
+              {value.docs.map(doc => (
+                <React.Fragment key={doc.id}>
+                  {JSON.stringify(doc.data())},{' '}
+                </React.Fragment>
+              ))}
+            </span>
+          )}
+        </p>
       </div>
     );
-  }
-     
+  };
+
+*/
+  
   const DesayunoClick = () => {
     console.log('hola');
-    setVista(0);
+    //setVista(0);
   }
   const AlmuerzoClick = () => {
     console.log('hola1');
-    setVista(1);
+    //setVista(1);
   }
   return (
     <div>
@@ -152,7 +164,14 @@ function About() {
            <h2>Menú</h2> 
            <button type="button" onClick={DesayunoClick}>Desayuno</button>
            <button type="button" onClick={AlmuerzoClick}>Almuerzo y Cena</button>
-           { vista == 0 ? <Desayuno/> : <Almuerzo/> }
+           <ul>
+           {vista.map((item)=>
+           <li key={item.id}>
+             <div>{item.nombre}</div>
+             <div>{item.precio}</div>
+           </li>
+           )}
+           </ul>
           </div>
           <div className="order">
            <input type="text" placeholder="Correo electrónico" id="emailUserJ"/>
