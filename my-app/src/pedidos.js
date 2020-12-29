@@ -1,5 +1,6 @@
 import { VistaMenu } from './menu.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import firebase from './firebase';
 import burguer from './burguer.svg';
 import './Pedidos.css';
 
