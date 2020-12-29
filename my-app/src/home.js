@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import burguer from './burguer.svg';
 
 function Ingresar() {
 
@@ -19,6 +20,7 @@ export function Home() {
     return (
     <div>
         <header>
+         <img src={burguer} className="Logo" alt="logo"/>
          <h1>BURGER QUEEN</h1>
         </header>
         <main>

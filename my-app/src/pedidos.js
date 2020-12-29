@@ -1,4 +1,4 @@
-import { VistaMenu } from './firestore.js';
+import { VistaMenu } from './menu.js';
 import { useState } from 'react';
 import burguer from './burguer.svg';
 import './Pedidos.css';
@@ -23,7 +23,7 @@ export function Pedidos() {
           <img src={burguer} className="Logo" alt="logo"/>
           <h1>BURGER QUEEN</h1>
         </header>
-        <main>
+        <main className="mainPedidos">
           <section>
             <h2>Menú</h2> 
             <button type="button" onClick={desayunoClick}>Desayuno</button>
