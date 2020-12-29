@@ -23,15 +23,12 @@ export function Pedidos() {
           <img src={burguer} className="Logo" alt="logo"/>
           <h1>BURGER QUEEN</h1>
         </header>
-        <main className="mainPedidos">
+        <main> 
           <section>
             <h2>Menú</h2> 
             <button type="button" onClick={desayunoClick}>Desayuno</button>
             <button type="button" onClick={almuerzoClick}>Almuerzo y Cena</button>
             <div><VistaMenu tipoMenu= {vista}/></div>
-          </section>
-          <section>
-            <h2>ORDEN</h2>
           </section>
         </main>
       </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import firebase from './firebase';
+import './Pedidos.css';
 
 export function VistaMenu (props) {
   /* const tipoMenu = props.tipoMenu; */
@@ -43,24 +44,21 @@ const listMenu = selecteditems.map((item)=>
     -
       </button>
   </div> 
-    
-  <div>{'$'+item.precio}
- 
-    </div>
+  <div>{'$'+item.precio}</div>
 </li>
 );
-return (<div className="mainPedidos">
+return (<div className='order'>
   <section><ul>{listItems}</ul></section>
   <section>
+    <h2>ORDEN</h2>
     <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
-    <div>
-      <ul>{listMenu}</ul>
-    </div>
+    <ul>{listMenu}</ul>
     <button type="submit">Enviar la orden</button>
     </section>
   </div>)
 }
   
+
 /* function Example() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
