@@ -1,6 +1,5 @@
 import { VistaMenu } from './menu.js';
-import { useState, useEffect } from 'react';
-import firebase from './firebase';
+import { useState } from 'react';
 import burguer from './burguer.svg';
 import './Pedidos.css';
 
@@ -32,11 +31,7 @@ export function Pedidos() {
             <div><VistaMenu tipoMenu= {vista}/></div>
           </section>
           <section>
-            <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
-            <div>
-              <h2>ORDEN</h2>
-            </div>
-            <button type="submit">Enviar la orden</button>
+            <h2>ORDEN</h2>
           </section>
         </main>
       </div>
