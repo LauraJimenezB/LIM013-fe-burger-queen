@@ -5,6 +5,7 @@ export function VistaMenu (props) {
   /* const tipoMenu = props.tipoMenu; */
 
   const [items, setItems] = useState([]);
+  const [selecteditems, menuItems] = useState([]);
 useEffect(() => {
   firebase.firestore().collection('items').where("categoria", "==", props.tipoMenu).onSnapshot((snapshot)=>{
     const items = snapshot.docs.map((doc)=> ({
@@ -15,12 +16,31 @@ useEffect(() => {
   })
 }, [props.tipoMenu])
 
+  const addItem = (item) => {
+    const newItem = {
+      id: item.id,
+      nombre: item.nombre,
+      precio: item.precio,
+    }
+    menuItems([...selecteditems, newItem])
+  }
+
 const listItems = items.map((item)=>
-<li key={item.id}>
+<li onClick={()=>addItem(item)} key={item.id}>
   <div>{item.nombre}</div>
-  <div>{item.precio}</div>
+  <div>{'$'+item.precio}</div>
 </li>
 );
-return (<ul>{listItems}</ul>)
+
+const listMenu = selecteditems.map((item)=>
+<li key={item.id}>
+  <div>{item.nombre}</div>
+  <div>{'$'+item.precio}</div>
+</li>
+);
+return (<div>
+  <ul>{listItems}</ul>
+  <ul>ORDEN {listMenu}</ul>
+  </div>)
 }
   
