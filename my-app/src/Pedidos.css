@@ -4,7 +4,7 @@
     margin-top: 2vh;
 }
 
-header, .mainPedidos {
+header, .mainPedidos, .order {
     display:inline-flex;
 }
 
