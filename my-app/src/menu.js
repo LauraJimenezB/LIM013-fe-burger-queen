@@ -49,9 +49,15 @@ const listMenu = selecteditems.map((item)=>
     </div>
 </li>
 );
-return (<div>
-  <ul>{listItems}</ul>
-  <ul>ORDEN {listMenu}</ul>
+return (<div className="mainPedidos">
+  <section><ul>{listItems}</ul></section>
+  <section>
+    <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
+    <div>
+      <ul>{listMenu}</ul>
+    </div>
+    <button type="submit">Enviar la orden</button>
+    </section>
   </div>)
 }
   
