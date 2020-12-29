@@ -50,7 +50,7 @@ const listMenu = selecteditems.map((item)=>
 return (<div className='order'>
   <section><ul>{listItems}</ul></section>
   <section>
-    <h2>ORDEN</h2>
+    <h2>ORDER</h2>
     <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
     <ul>{listMenu}</ul>
     <button type="submit">Enviar la orden</button>
