@@ -22,12 +22,17 @@ return(
 
 export default HookCounterThree */
 
+
+//si le doy click a un id de desayuno o de almuerzos entonces traeme ese id y ponlo en la lista de orden
+/* 
+<button type="button" onClick={desayunoClick}>Desayuno</button>
+
 const FoodsList = () => {
     const [foods, setFoods] = useState([]);
 
     const handleAddFoods = () => {
         const newFoods ={
-
+            vistaMenu
         }
         //item
     }
@@ -46,4 +51,4 @@ return (
     <button onClick={handleAddFoods}> agregar </button> 
     </>
 )
- 
+  */

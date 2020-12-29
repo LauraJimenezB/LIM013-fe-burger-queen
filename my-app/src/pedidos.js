@@ -34,7 +34,7 @@ export function Pedidos() {
             <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
             <div>
               <h2>ORDEN</h2>
-            </div>s
+            </div>
             <button type="submit">Enviar la orden</button>
           </section>
         </main>
