@@ -35,13 +35,13 @@ const listItems = items.map((item)=>
 
 const listMenu = selecteditems.map((item)=>
 <li key={item.id}>
-  <div>{item.nombre}
+  <div>{item.nombre + " "}
     <button name="button1" onClick={() => setCount(count + 1)}>
-    +
-    </button> {count}
+    + 
+    </button> {count+" "}
       <button name="button2" onClick={() => setCount(count - 1)}>
     -
-      </button> {count}
+      </button>
   </div> 
     
   <div>{'$'+item.precio}
