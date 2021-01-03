@@ -37,7 +37,8 @@ const listItems = items.map((item)=>
 const listMenu = selecteditems.map((item)=>
 <li key={item.id}>
   <div>{item.nombre + " "}
-    <button name="button1" onClick={() => setCount(count + 1)}>
+  
+    <button name="button1" onClick={() => setCount(count + 1 )}>
     + 
     </button> {count+" "}
       <button name="button2" onClick={() => setCount(count - 1)}>
@@ -58,17 +59,3 @@ return (<div className='order'>
   </div>)
 }
   
-
-/* function Example() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}  */
