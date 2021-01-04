@@ -88,6 +88,11 @@ const listMenu = selecteditems.map((item)=>
   <button onClick={()=> deleteItem(item.id)}>x</button>
 </li>
 );
+
+const total = selecteditems.reduce(function(prev, curr){
+  return prev + curr.total;
+},0);
+
 return (<div className='order'>
   <section className="menu"><ul className='listItems'>{listItems}</ul></section>
   <section>
@@ -95,6 +100,7 @@ return (<div className='order'>
     <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>
     <ul>{listMenu}</ul>
     <h3>Total</h3>
+    <div>{'$'+total}</div>
     <button type="submit">Enviar la orden</button>
     </section>
   </div>)
