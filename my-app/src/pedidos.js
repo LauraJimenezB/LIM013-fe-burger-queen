@@ -20,7 +20,7 @@ export function Pedidos() {
     return (
       <div>
         <header>
-          <img src={burguer} className="Logo" alt="logo"/>
+          <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
           <h1>BURGER QUEEN</h1>
         </header>
         <main> 
