@@ -67,7 +67,7 @@ useEffect(() => {
   }
  
 const listItems = items.map((item)=>
-<li className="MunuItem" onClick={()=>addItem(item)} key={item.id}>
+<li className="menuItem" onClick={()=>addItem(item)} key={item.id}>
   <div>{item.nombre}</div>
   <div>{'$'+item.precio}</div>
 </li>
@@ -89,7 +89,7 @@ const listMenu = selecteditems.map((item)=>
 </li>
 );
 return (<div className='order'>
-  <section><ul>{listItems}</ul></section>
+  <section className="menu"><ul className='listItems'>{listItems}</ul></section>
   <section>
     <h2>ORDEN:</h2>
     <input type="text" placeholder="Nombre del cliente" id="nombreCliente"/>

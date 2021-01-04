@@ -4,10 +4,37 @@
     margin-top: 2vh;
 }
 
-header, .mainPedidos, .order {
+header, .mainPedidos {
     display:inline-flex;
 }
 
 section {
-    width: 50vw;
+    width: 100vw;
+}
+
+.order {
+    width: 100vw;
+}
+
+.menu {
+    background-color: rgb(135, 190, 192);
+}
+
+.listItems {
+    list-style-type: none;
+    display:flex;
+    flex-direction:row;
+    padding-inline-start: none;
+    width:90vw;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+
+
+.menuItem {
+    width: 150px;
+    height: 80px;
+    margin: 10px;
+    background-color: cornflowerblue;
 }
