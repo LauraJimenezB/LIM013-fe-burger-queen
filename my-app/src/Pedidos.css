@@ -1,11 +1,34 @@
 .Logo {
-    height: 8vh;
-    width: 8vw;
-    margin-top: 2vh;
+    height: 60px;
+    width: 60px;
+    margin-top: 8px;
+    margin-left: 13px;
+}
+
+.logoImg {
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    width:80px;
+    height:80px;
+    align-content: center;
+    margin-top: 12px;
+    margin-right: 15px;
+    margin-left: 18px;
+}
+
+h1 {
+    margin-top: 30px;
 }
 
 header, .mainPedidos {
     display:inline-flex;
+}
+
+header {
+    background-color: #B23A48;
+    width: 100vw;
+    height: 105px;
+    color:rgb(255, 255, 255);
 }
 
 section {
@@ -17,7 +40,7 @@ section {
 }
 
 .menu {
-    background-color: rgb(135, 190, 192);
+    background-color: rgb(209, 207, 207);
 }
 
 .listItems {
@@ -36,5 +59,5 @@ section {
     width: 150px;
     height: 80px;
     margin: 10px;
-    background-color: cornflowerblue;
+    background-color: rgb(255, 255, 255);
 }
