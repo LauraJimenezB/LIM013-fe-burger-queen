@@ -25,9 +25,11 @@ export function Pedidos() {
         </header>
         <main> 
           <section>
-            <h2>Menú</h2> 
-            <button type="button" onClick={desayunoClick}>Desayuno</button>
-            <button type="button" onClick={almuerzoClick}>Almuerzo y Cena</button>
+            <div className='menuHeader'>
+              <h2>Menú</h2> 
+              <button type="button" className='btnMenuType' onClick={desayunoClick}>Desayuno</button>
+              <button type="button" className='btnMenuType' onClick={almuerzoClick}>Almuerzo / Cena</button>
+            </div>
             <div><VistaMenu tipoMenu= {vista}/></div>
           </section>
         </main>
