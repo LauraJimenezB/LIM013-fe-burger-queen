@@ -9,6 +9,9 @@ function Menu (props) {
   <li className="menuItem" onClick={()=>props.addItem(item)} key={item.id}>
     <span>{item.nombre}</span>
     <span>{'$'+item.precio}</span>
+    <div>
+      <img className='imgItem' src={item.img} alt={item.id}/>
+    </div>
   </li>
   );
   return (<section className="menu"><ul className='listItems'>{listItems}</ul></section>)
