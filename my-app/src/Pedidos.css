@@ -1,23 +1,24 @@
 .Logo {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     margin-top: 8px;
-    margin-left: 13px;
+    margin-left: 11px;
 }
 
 .logoImg {
     background-color: rgb(255, 255, 255);
     border-radius: 100%;
-    width:80px;
-    height:80px;
+    width:60px;
+    height:60px;
     align-content: center;
-    margin-top: 12px;
-    margin-right: 15px;
+    margin-top: 8px;
+    margin-right: 10px;
     margin-left: 45px;
 }
 
 h1 {
-    margin-top: 30px;
+    margin-top: 18px;
+    font-size: 27px;
 }
 
 header, .mainPedidos {
@@ -28,12 +29,12 @@ header, .mainPedidos {
 header {
     background-color: #B23A48;
     width: 100vw;
-    height: 105px;
+    height: 75px;
     color:rgb(255, 255, 255);
 }
 
 section {
-    width: 100vw;
+    max-width: 100vw;
 }
 
 .order {
@@ -57,18 +58,34 @@ section {
 
 
 .menuItem {
-    width: 150px;
-    height: 80px;
-    margin: 10px;
+    width: 190px;
+    height: 70px;
+    margin: 5px;
     background-color: #dcdee0;
     color: #2A2D34;
-    padding: 10px;
+    padding: 5px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.divNameItem {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.divImgItem {
+    display: flex;
+    justify-content: center;
 }
 
 .imgItem {
-    width: 68px;
-    height:50px;
+    width: 70px;
+    height:70px;
+    border-radius: 15px;
 }
 
 .listSelectedItems {
@@ -98,7 +115,8 @@ span {
 
 h2 {
     color: #2A2D34;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 } 
 
 .menuHeader {
@@ -107,13 +125,13 @@ h2 {
 }
 
 .btnMenuType {
-    background-color: #F17F29;
-    width: 170px;
-    padding: 10px;
+    background-color: #e47f32;
+    width: 150px;
+    padding: 5px;
     height: 50px;
-    margin-right:20px;
-    outline-color: #F17F29;
-    border-color: #F17F29;
+    margin-right:10px;
+    outline-color:#696969;
+    border-color: #696969;
     border-style: hidden;
     border-radius: 10px;
     color: rgb(255, 255, 255);
