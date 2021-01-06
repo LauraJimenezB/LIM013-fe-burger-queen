@@ -56,8 +56,10 @@ return (
 <section className="order">
   <h2>ORDEN</h2>
   <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/>
+
+{/* {" "}-{input}- */}
   <ul className='listSelectedItems'>{listMenu}</ul>
-  <h3>{'Total: $'+total}</h3>
+  <h3>{'Total de'} {input}{': $'}{total}</h3>
   <button type="submit" className="btnSend" onClick={()=>sendOrder(input, orderedItems, total)}>Enviar la orden</button>
   </section>)
 }
