@@ -9,6 +9,9 @@ function Menu (props) {
   <li className="menuItem" onClick={()=>props.addItem(item)} key={item.id}>
     <span>{item.nombre}</span>
     <span>{'$'+item.precio}</span>
+    <div>
+      <img className='imgItem' src={item.img} alt={item.id}/>
+    </div>
   </li>
   );
   return (<section className="menu"><ul className='listItems'>{listItems}</ul></section>)
@@ -51,8 +54,10 @@ return (
 <section className="order">
   <h2>ORDEN</h2>
   <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/>
+
+{/* {" "}-{input}- */}
   <ul className='listSelectedItems'>{listMenu}</ul>
-  <h3>{'Total: $'+total}</h3>
+  <h3>{'Total de'} {input}{': $'}{total}</h3>
   <button type="submit" className="btnSend" onClick={()=>sendOrder(input, orderedItems, total)}>Enviar la orden</button>
   </section>)
 }
