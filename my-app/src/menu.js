@@ -24,7 +24,7 @@ const [input, setInput] = useState('');
 
 //Mostrar items seleccionados
 const listMenu = props.selectedItems.map((item)=>
-<li className="selectedItem" key={item.id} data-id={item.id}>
+<li className="selectedItem" key={item.id}>
   <div className="nameSelectedItem">{item.nombre}</div> 
   <div> 
     <button name="button1" onClick={() => props.updateItemHandler(item.id, true)}>+</button> {" "+ item.cantidad+ " "}
@@ -56,8 +56,10 @@ return (
 <section className="order">
   <h2>ORDEN</h2>
   <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/>
+
+{/* {" "}-{input}- */}
   <ul className='listSelectedItems'>{listMenu}</ul>
-  <h3>{'Total: $'+total}</h3>
+  <h3>{'Total de'} {input}{': $'}{total}</h3>
   <button type="submit" className="btnSend" onClick={()=>sendOrder(input, orderedItems, total)}>Enviar la orden</button>
   </section>)
 }
