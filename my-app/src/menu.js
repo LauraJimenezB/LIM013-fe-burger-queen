@@ -27,8 +27,8 @@ const listMenu = props.selectedItems.map((item)=>
 <li className="selectedItem" key={item.id}>
   <div className="nameSelectedItem">{item.nombre}</div> 
   <div> 
-    <button name="button1" onClick={() => props.updateItemHandler(item.id, true)}>+</button> {" "+ item.cantidad+ " "}
-    <button name="button2" onClick={() => props.updateItemHandler(item.id, false)}>-</button>
+    <button className="button1" name="button1" onClick={() => props.updateItemHandler(item.id, true)}>+</button> {" "+ item.cantidad+ " "}
+    <button className="button1" name="button2" onClick={() => props.updateItemHandler(item.id, false)}>-</button>
   </div> 
   <div>{'$'+item.precio}</div>
   <div>{'$'+item.total}</div>
@@ -56,8 +56,6 @@ return (
 <section className="order">
   <h2>ORDEN</h2>
   <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/>
-
-{/* {" "}-{input}- */}
   <ul className='listSelectedItems'>{listMenu}</ul>
   <h3>{'Total de'} {input}{': $'}{total}</h3>
   <button type="submit" className="btnSend" onClick={()=>sendOrder(input, orderedItems, total)}>Enviar la orden</button>
