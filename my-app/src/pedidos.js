@@ -26,7 +26,7 @@ export function Pedidos() {
         <main> 
           <section>
             <div className='menuHeader'>
-              <h2>Menú</h2> 
+              <h2 className='titleMenu'>Menú</h2> 
               <button type="button" className='btnMenuType' onClick={desayunoClick}>Desayuno</button>
               <button type="button" className='btnMenuType' onClick={almuerzoClick}>Almuerzo / Cena</button>
             </div>
