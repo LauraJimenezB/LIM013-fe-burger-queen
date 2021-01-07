@@ -6,7 +6,7 @@ function Ingresar() {
   let history = useHistory();
 
   function handleClick() {
-    history.push("/Pedidos");
+    history.push("/Mesero");
   }
 
   return (
@@ -14,7 +14,22 @@ function Ingresar() {
       Ingresar
     </button>
   );
-  }
+}
+
+function IngresarCocina() {
+
+    let history = useHistory();
+  
+    function handleClick() {
+      history.push("/Cocina");
+    }
+  
+    return (
+      <button type="submit" onClick={handleClick}>
+        Ingresar
+      </button>
+    );
+    }
 
 export function Home() {
     return (
@@ -34,7 +49,7 @@ export function Home() {
            <h2>Jefe de cocina</h2>
            <input type="text" placeholder="Correo electrónico" id="emailUserJ"/>
            <input type="text" placeholder="Contraseña" id="passwordUserJ"/>
-           <button type="submit">Ingresar</button>
+           <IngresarCocina/>
           </div>
         </main>
       </div>
