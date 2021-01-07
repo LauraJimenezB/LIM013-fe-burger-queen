@@ -35,7 +35,8 @@ import {
 import { React } from 'react';
 // import {useCollection} from 'react-firebase-hooks/firestore';
 
-import { Pedidos } from './pedidos.js'
+import { Mesero } from './mesero.js'
+import { Cocina } from './cocina.js'
 import { Home } from './home.js'
 
 export default function App() {
@@ -46,8 +47,11 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/pedidos">
-            <Pedidos />
+          <Route path="/Mesero">
+            <Mesero />
+          </Route>
+          <Route path="/Cocina">
+            <Cocina />
           </Route>
           <Route path="/">
             <Home />

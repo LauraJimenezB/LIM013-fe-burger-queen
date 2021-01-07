@@ -1,4 +1,4 @@
-import { VistaMenu } from './menu.js';
+import { VistaMenu } from './vistaMenu.js';
 import { useState } from 'react';
 import burguer from './burguer.svg';
 import './Pedidos.css';
@@ -6,7 +6,7 @@ import './Pedidos.css';
 const DESAYUNO = 'desayuno';
 const ALMUERZO = 'almuerzo';
 
-export function Pedidos() {
+export function Mesero() {
     
     const [vista, vistaMenu] = useState(DESAYUNO);
 
