@@ -1,44 +1,50 @@
-import { useEffect, useState } from 'react'; 
+import { useState, useEffect } from 'react';
 import firebase from './firebase';
-import 'firebase/storage';
 
 export function Cocina () {
-    const [ orders, setOrders ] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [items, setItems] = useState([]);
 
+    //Traer orders de firebase
     useEffect(() => {
         firebase.firestore().collection('orders').onSnapshot((snapshot)=>{
-            const arrayOrder = []
-            snapshot.forEach((unic) => {
-              arrayOrder.push({
-              id: unic.id,
-              ...unic.data()
-            });
+          const orders = snapshot.docs.map((doc)=> ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          setOrders(orders);
         })
-            setOrders(arrayOrder);
+        }, [])
+
+      
+        //Traer items de firebase
+        useEffect(() => {
+          firebase.firestore().collection('items').onSnapshot((snapshot)=>{
+            const items = snapshot.docs.map((doc)=> ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setItems(items);
           })
-        }, []);
+        }, [])
 
-        const listOrders = orders.map((order)=>
-        <li key={order.id}>
-            <span>{order.cliente}</span>
-            <span>{order.total}</span>
-            <ul className="listItems-order">
-                {order.list.map((element)=>
-                <li key={element.id}>{element.id}</li>)}
-            </ul>
-        </li>
-        
-        )
-
-      //relacion logica en archivo
-      //traer data de productos e ir conectando los id, con los productos que traemos
-      //funcion que se encargue de esa logica y luego lo pintamos en el template
-    // states *
-
-
-      // KEY: para que react no vuelva a pintar toda la lista sino que se pinte el elemento que queremos
-      //que cumpla funcionalidad
-
-        return(<ul>{listOrders}</ul>)
+    const getName = (idOrderElement) => {
+        const item =  items.filter((item)=>item.id===idOrderElement)[0];
+        return item.nombre;
+    }
+    
+    const listOrders = orders.map((order)=> 
+    <div key={order.id}>
+        <span>{order.cliente}</span>
+        <ul className="listItems-order">
+            {order.list.map((element)=>
+            <li key={element.id+element.nombre}>
+                <span>{element.cantidad}</span>
+                <span>{getName(element.id)}</span>
+            </li>)}
+        </ul>
+        <span>{order.total}</span>
+    </div>
+    )
+    return(<ul>{listOrders}</ul>)
 }
-
