@@ -3,7 +3,9 @@ import firebase from './firebase';
 
 export function Cocina () {
     const [orders, setOrders] = useState([]);
+    const [items, setItems] = useState([]);
 
+    //Traer orders de firebase
     useEffect(() => {
         firebase.firestore().collection('orders').onSnapshot((snapshot)=>{
           const orders = snapshot.docs.map((doc)=> ({
@@ -14,12 +16,30 @@ export function Cocina () {
         })
         }, [])
 
+      
+        //Traer items de firebase
+        useEffect(() => {
+          firebase.firestore().collection('items').onSnapshot((snapshot)=>{
+            const items = snapshot.docs.map((doc)=> ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setItems(items);
+          })
+        }, [])
+
     const listOrders = orders.map((order)=> 
-    <li key={order.id}>
+    <div key={order.id}>
         <span>{order.cliente}</span>
-        <div>{order.list}</div>
+        <ul className="listItems-order">
+            {order.list.map((element)=>
+            <li key={element.id}>
+                <span>{element.cantidad}</span>
+                <span>{element.id}</span>
+            </li>)}
+        </ul>
         <span>{order.total}</span>
-    </li>
+    </div>
     )
     return(<ul>{listOrders}</ul>)
 }
