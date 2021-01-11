@@ -5,20 +5,21 @@ import './Pedidos.css';
 import { Menu } from './menu.js';
 import { Order } from './order.js';
 
+
 export function VistaMenu (props) {
   const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
 
   //Traer items de firebase
   useEffect(() => {
-    firebase.firestore().collection('items').where("categoria", "==", props.tipoMenu).onSnapshot((snapshot)=>{
+    firebase.firestore().collection('items').onSnapshot((snapshot)=>{
       const items = snapshot.docs.map((doc)=> ({
         id: doc.id,
         ...doc.data()
       }))
       setItems(items);
     })
-  }, [props.tipoMenu])
+  }, [])
 
   //Agregar items a la ORDEN
   const addItem = (item) => {
@@ -26,6 +27,7 @@ export function VistaMenu (props) {
       setSelectedItems(selectedItems);
     } else {
       const newItem = {
+        timeOfOrder: new Date().toLocaleString,
         id: item.id,
         nombre: item.nombre,
         precio: item.precio,
@@ -58,7 +60,7 @@ const updateItem = (idItem, isMore) => {
   setSelectedItems(newItems);
 }
 return (
-  <div>
+  <div className='mainMenu'>
     <Menu items={items} addItem={addItem}/>
     <Order selectedItems={selectedItems} updateItemHandler={updateItem} deleteItemHandler={deleteItem}/>
   </div>
