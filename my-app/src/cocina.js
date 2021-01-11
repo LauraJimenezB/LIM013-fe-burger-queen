@@ -33,12 +33,18 @@ export function Cocina () {
         const getItem =  items.filter((item)=>item.id===idElement)[0];
         return (getItem.nombre);
     }
-    
+     
+    const checkClick = () => {
+      const timeFinal = new Date().toLocaleTimeString()
+      return <div>Preparación finalizada:{timeFinal}</div>
+     } 
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
         <span>Cliente: {order.cliente}</span>
         <div>Fecha: {order.date}</div>
-        <div>Hora: {order.time}</div>
+        <div>Inicio de preparación: {order.time}</div>
+        {checkClick}
+        <div className='hola'> <button type="radio" value="check" onClick={checkClick}> Preparado</button></div>
         <ul className="listItems-order">
             { items.length > 0 ?
                  order.list.map((element)=>
@@ -51,5 +57,8 @@ export function Cocina () {
         <span>Total: ${order.total}</span>
     </div>
     )
-    return(<ul className='orderSpace'>{listOrders}</ul>)
+    return(<ul className='orderSpace'>{listOrders}</ul>
+    )
+    
 }
+
