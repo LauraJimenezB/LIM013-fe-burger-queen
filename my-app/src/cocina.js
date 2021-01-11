@@ -28,19 +28,21 @@ export function Cocina () {
           })
         }, [])
 
-    const getName = (idOrderElement) => {
-        const item =  items.filter((item)=>item.id===idOrderElement)[0];
-        return item.nombre;
+/*
+    const getName = (idElement) => {
+        const getItem =  items.filter((item)=>item.id===idElement)[0];
+        return (getItem.nombre);
     }
+    */
     
     const listOrders = orders.map((order)=> 
     <div key={order.id}>
         <span>{order.cliente}</span>
         <ul className="listItems-order">
             {order.list.map((element)=>
-            <li key={element.id+element.nombre}>
+            <li key={element.id}>
                 <span>{element.cantidad}</span>
-                <span>{getName(element.id)}</span>
+               {/*<span>{getName(element.id)}</span>*/}
             </li>)}
         </ul>
         <span>{order.total}</span>
