@@ -26,6 +26,7 @@ export function VistaMenu (props) {
       setSelectedItems(selectedItems);
     } else {
       const newItem = {
+        time: new Date().toLocaleString(),
         id: item.id,
         nombre: item.nombre,
         precio: item.precio,
