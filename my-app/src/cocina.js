@@ -7,7 +7,7 @@ export function Cocina () {
 
     //Traer orders de firebase
     useEffect(() => {
-        firebase.firestore().collection('orders').onSnapshot((snapshot)=>{
+        firebase.firestore().collection('orders').orderBy('time', 'desc').orderBy('date', 'desc').onSnapshot((snapshot)=>{
           const orders = snapshot.docs.map((doc)=> ({
             id: doc.id,
             ...doc.data()
@@ -28,27 +28,27 @@ export function Cocina () {
           })
         }, [])
 
-/*
+
     const getName = (idElement) => {
         const getItem =  items.filter((item)=>item.id===idElement)[0];
         return (getItem.nombre);
     }
-    */
-    
     
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
         <span>Cliente: {order.cliente}</span>
-        <div>Hora: {order.timeOfOrder}</div>
+        <div>Fecha: {order.date}</div>
+        <div>Hora: {order.time}</div>
         <ul className="listItems-order">
-            {order.list.map((element)=>
-            <li key={element.id}>
-                <span>{element.cantidad}</span>
-                <span>{element.id}</span>
-                {/*<span>{getName(element.id)}</span>*/}
-            </li>)}
+            { items.length > 0 ?
+                 order.list.map((element)=>
+                    <li key={element.id}>
+                        <span>{element.cantidad}</span>
+                        <span>{getName(element.id)}</span>
+                    </li>)
+            : 'loading' }
         </ul>
-        <span>Total: {order.total}</span>
+        <span>Total: ${order.total}</span>
     </div>
     )
     return(<ul className='orderSpace'>{listOrders}</ul>)
