@@ -263,6 +263,19 @@ h2 {
     top: 10px;
 }
 
+/*---------------------------------------*/
+.orderSpace {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.divSingleOrder {
+    margin: 15px;
+    padding: 20px;
+    outline-color: black;
+    outline-style: solid;
+}
+
 /* .vistaTodo {
     width: 50PX;
     height: 50px;
