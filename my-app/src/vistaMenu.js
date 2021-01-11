@@ -27,7 +27,6 @@ export function VistaMenu (props) {
       setSelectedItems(selectedItems);
     } else {
       const newItem = {
-        timeOfOrder: new Date().toLocaleString,
         id: item.id,
         nombre: item.nombre,
         precio: item.precio,
@@ -62,7 +61,7 @@ const updateItem = (idItem, isMore) => {
 return (
   <div className='mainMenu'>
     <Menu items={items} addItem={addItem}/>
-    <Order selectedItems={selectedItems} updateItemHandler={updateItem} deleteItemHandler={deleteItem}/>
+    <Order selectedItems={selectedItems} setSelectedItems={setSelectedItems} updateItemHandler={updateItem} deleteItemHandler={deleteItem}/>
   </div>
 )
   }

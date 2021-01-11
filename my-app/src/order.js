@@ -37,16 +37,19 @@ export function Order (props) {
     //Enviar orden (a firebase)
     const orderedItems = props.selectedItems.map((item)=>({id: item.id, cantidad: item.cantidad}));
 
-    let now = new Date();
+    const resetOrder = () => {
+        props.setSelectedItems([]);
+        setInput('');
+    }
     
     const sendOrder = (input, listValue, totalValue) => {
       firebase.firestore().collection('orders').add({
         cliente: input,
         list: listValue,
         total: totalValue,
-        timeOfOrder: now.toUTCString(),
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
       });
-
     };
     
     return (
@@ -70,6 +73,6 @@ export function Order (props) {
           {listMenu}
       </ul>
       <h3>{'Monto Total'} {input}{': $'}{total}</h3>
-      <button type="submit" className="btnSend" onClick={()=>sendOrder(input, orderedItems, total)}>Enviar la orden</button>
+      <button type="submit" className="btnSend" onClick={()=>{sendOrder(input, orderedItems, total); resetOrder()}}>Enviar la orden</button>
       </section>)
     }
