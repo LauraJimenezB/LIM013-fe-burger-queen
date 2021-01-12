@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, React } from 'react';
 import firebase from './firebase';
+import './Pedidos.css';
 
 export function Cocina () {
     const [orders, setOrders] = useState([]);
@@ -34,18 +35,19 @@ export function Cocina () {
         return (getItem.nombre);
     }
      
-    const checkClick = () => {
-      const timeFinal = new Date().toLocaleTimeString()
-      return <div>Preparación finalizada:{timeFinal}</div>
-     } 
+
+    const checkClick = (order) => {
+        const timeFinal = new Date().toLocaleTimeString()
+        firebase.firestore().collection('orders').doc(order.id).update({timeFinal: timeFinal, estado: 'Preparado'});
+       } 
+
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
         <span>Cliente: {order.cliente}</span>
         <div>Fecha: {order.date}</div>
         <div>Inicio de preparación: {order.time}</div>
-        {checkClick()}
-        <button type="button" onClick={checkClick}>Preparado</button>
-       {/*  {checkClick()} */}
+        <div>Fin de preparación: {order.timeFinal}</div>
+        <button type="button" className="btnPreparado" onClick={()=>checkClick(order)}>{order.estado}</button>
         <ul className="listItems-order">
             { items.length > 0 ?
                  order.list.map((element)=>
