@@ -49,6 +49,7 @@ export function Order (props) {
         total: totalValue,
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
+        estado: 'En preparación',
       });
     };
     
