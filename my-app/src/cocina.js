@@ -43,8 +43,9 @@ export function Cocina () {
         <span>Cliente: {order.cliente}</span>
         <div>Fecha: {order.date}</div>
         <div>Inicio de preparación: {order.time}</div>
-        {checkClick}
-        <div className='hola'> <button type="radio" value="check" onClick={checkClick}> Preparado</button></div>
+        {checkClick()}
+        <button type="button" onClick={checkClick}>Preparado</button>
+       {/*  {checkClick()} */}
         <ul className="listItems-order">
             { items.length > 0 ?
                  order.list.map((element)=>
