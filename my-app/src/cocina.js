@@ -40,7 +40,10 @@ export function Cocina () {
         const timeFinal = new Date().toLocaleTimeString()
         firebase.firestore().collection('orders').doc(order.id).update({timeFinal: timeFinal, estado: 'Preparado'});
        } 
-
+        const sendToMesonero = (idOrder) => {
+          const newOrders = orders.filter((order)=>order.id !== idOrder);
+          setOrders(newOrders);
+      }; 
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
         <span>Cliente: {order.cliente}</span>
@@ -58,6 +61,7 @@ export function Cocina () {
             : 'loading' }
         </ul>
         <span>Total: ${order.total}</span>
+        <button type="submit" className="btnSendToMesonero" onClick={()=>{sendToMesonero(order.id)}}>Listo</button>
     </div>
     )
     return(<ul className='orderSpace'>{listOrders}</ul>
