@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, React } from 'react';
+import { useState, useEffect, React } from 'react';
 import firebase from './firebase';
 import './Pedidos.css';
 
@@ -46,11 +46,8 @@ export function Cocina () {
       }; 
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
+      <div>Fecha: {order.date}</div>
         <span>Cliente: {order.cliente}</span>
-        <div>Fecha: {order.date}</div>
-        <div>Inicio de preparación: {order.time}</div>
-        <div>Fin de preparación: {order.timeFinal}</div>
-        <button type="button" className="btnPreparado" onClick={()=>checkClick(order)}>{order.estado}</button>
         <ul className="listItems-order">
             { items.length > 0 ?
                  order.list.map((element)=>
@@ -59,8 +56,13 @@ export function Cocina () {
                         <span>{getName(element.id)}</span>
                     </li>)
             : 'loading' }
+            <span>Total: ${order.total}</span>
+            <br></br>
+            <button type="button" className="btnPreparado" onClick={()=>checkClick(order)}>{order.estado}</button>
+            <div>Inicio de preparación: {order.time}</div>
+        <div>Fin de preparación: {order.timeFinal}</div>
         </ul>
-        <span>Total: ${order.total}</span>
+        
         <button type="submit" className="btnSendToMesonero" onClick={()=>{sendToMesonero(order.id)}}>Listo</button>
     </div>
     )

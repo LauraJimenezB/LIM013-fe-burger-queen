@@ -275,7 +275,15 @@ h2 {
     outline-color: black;
     outline-style: solid;
 }
-
+.btnPreparado{
+background-color: darkgreen;
+}
+.btnSendToMesonero{
+background-color: brown;    
+}
+.divSingleOrder{
+background-color: aliceblue;    
+}
 
 /* .vistaTodo {
     width: 50PX;
