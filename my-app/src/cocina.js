@@ -46,7 +46,7 @@ export function Cocina () {
       }; 
     const listOrders = orders.map((order)=> 
     <div key={order.id} className='divSingleOrder'>
-      <div>Fecha: {order.date}</div>
+        <div className='dateOrder'><span className='spanDateOrder'>Fecha: {order.date}</span></div>
         <span>Cliente: {order.cliente}</span>
         <ul className="listItems-order">
             { items.length > 0 ?
@@ -62,8 +62,15 @@ export function Cocina () {
             <div>Inicio de preparación: {order.time}</div>
         <div>Fin de preparación: {order.timeFinal}</div>
         </ul>
-        
-        <button type="submit" className="btnSendToMesonero" onClick={()=>{sendToMesonero(order.id)}}>Listo</button>
+        <span>Total: ${order.total}</span>
+        <div className='divEstadoPreparación'>
+          <button type="button" className="btnPreparado" onClick={()=>checkClick(order)}>{order.estado}</button>
+          <div>Inicio de preparación: {order.time}</div>
+          <div>Fin de preparación: {order.timeFinal}</div>
+        </div>
+        <div className='divListo'>
+          <button type="submit" className="btnSendToMesonero" onClick={()=>{sendToMesonero(order.id)}}>Listo</button>
+        </div>
     </div>
     )
     return(<ul className='orderSpace'>{listOrders}</ul>

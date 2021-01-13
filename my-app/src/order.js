@@ -60,7 +60,6 @@ export function Order (props) {
         <h2>ORDEN</h2></div>
         <div className="inLine">
             <div className="inLineSpace">Cliente: <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/></div>
-            <div className="inLineSpace">Mesa: <input type="text" placeholder="Numero de mesa" id="numeroMesa" value={inputMesa} onInput={e => setInputMesa(e.target.value)}/></div>
         </div>
       </div>
       <ul className='listSelectedItems'>
