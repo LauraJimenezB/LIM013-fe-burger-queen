@@ -50,6 +50,7 @@ export function Order (props) {
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
         estado: 'En preparación',
+        listo: false,
       });
     };
     
