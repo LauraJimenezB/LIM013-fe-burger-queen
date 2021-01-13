@@ -5,7 +5,6 @@ import './Pedidos.css';
 import { Menu } from './menu.js';
 import { Order } from './order.js';
 
-
 export function VistaMenu (props) {
   const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
@@ -48,6 +47,9 @@ const updateItem = (idItem, isMore) => {
   const cant = (isMore) ?  1 :  -1;
   const newItems = selectedItems.map((item) => {
     if (item.id === idItem) {
+      if (item.cantidad === 0 && !isMore) {
+        return item;
+      }
       return {
         ...item,
         cantidad: item.cantidad + cant,
