@@ -56,6 +56,11 @@ export function Cocina () {
                         <span>{getName(element.id)}</span>
                     </li>)
             : 'loading' }
+            <span>Total: ${order.total}</span>
+            <br></br>
+            <button type="button" className="btnPreparado" onClick={()=>checkClick(order)}>{order.estado}</button>
+            <div>Inicio de preparación: {order.time}</div>
+        <div>Fin de preparación: {order.timeFinal}</div>
         </ul>
         <span>Total: ${order.total}</span>
         <div className='divEstadoPreparación'>

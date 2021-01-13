@@ -329,15 +329,5 @@ h2 {
         flex-direction: row;
         justify-content: center;
     }
-    .listSelectedItems {
-        font-size: large;
-        list-style-type: none;
-        display:flex;
-        flex-direction:column;
-        width:100vw;
-        flex-wrap: wrap;
-        margin-left: auto;
-        margin-right: auto;
-    }
     
   } 
