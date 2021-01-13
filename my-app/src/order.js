@@ -8,8 +8,8 @@ import 'firebase/storage';
 
 export function Order (props) {
     const [input, setInput] = useState('');
-    const [inputMesa, setInputMesa] = useState('');
-    
+    /* const [inputMesa, setInputMesa] = useState('');
+     */
     //Mostrar items seleccionados
     const listMenu = props.selectedItems.map((item)=>
     <li className="selectedItem" key={item.id}>
