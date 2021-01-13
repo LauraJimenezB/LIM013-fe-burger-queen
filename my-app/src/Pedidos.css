@@ -308,14 +308,10 @@ h2 {
         flex-wrap: wrap;
         margin-top: 15px;
         height:200px;
-        justify-content: flex-start;
-        margin-left: auto;
-        margin-right: auto;
+        justify-content: center;
     }
     .btnMenuType {
-        background-color: rgb(240, 235, 235);
         width: 25vw;
-        padding: 5px;
         height: 40px;
         border-style: hidden;
         color: rgb(44, 44, 44);
@@ -323,7 +319,6 @@ h2 {
         font-size: 18px;
         border-bottom: rgb(177, 175, 175);
         border-bottom-style: hidden;
-        border-width: 2.5px;
         outline: none ;
         display: flex;
         flex-direction: row;
