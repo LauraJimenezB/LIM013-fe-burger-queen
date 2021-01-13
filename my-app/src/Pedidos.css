@@ -277,14 +277,67 @@ h2 {
     outline-color: black;
     outline-style: solid;
 }
-
-
+.dateOrder{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.divEstadoPreparación {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.divListo {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+}
 /* .vistaTodo {
     width: 50PX;
     height: 50px;
 } */
-/* @media only screen and (min-width: 300px) {
-    .vistaTodo {
-      min-height: 350px;
+@media only screen and (max-width: 1025px) {
+    .menuHeader {
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        height:200px;
+        justify-content: flex-start;
+        margin-left: auto;
+        margin-right: auto;
     }
-  } */
+    .btnMenuType {
+        background-color: rgb(240, 235, 235);
+        width: 25vw;
+        padding: 5px;
+        height: 40px;
+        border-style: hidden;
+        color: rgb(44, 44, 44);
+        font-weight: bold;
+        font-size: 18px;
+        border-bottom: rgb(177, 175, 175);
+        border-bottom-style: hidden;
+        border-width: 2.5px;
+        outline: none ;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .listSelectedItems {
+        font-size: large;
+        list-style-type: none;
+        display:flex;
+        flex-direction:column;
+        width:100vw;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+  } 
