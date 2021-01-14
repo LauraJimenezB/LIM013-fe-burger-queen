@@ -38,6 +38,7 @@ import { React } from 'react';
 import { Mesero } from './mesero.js'
 import { Cocina } from './cocina.js'
 import { Home } from './home.js'
+import { Hola } from './vistaPedidosListos.js'
 
 export default function App() {
   return (
@@ -52,6 +53,9 @@ export default function App() {
           </Route>
           <Route path="/Cocina">
             <Cocina />
+          </Route>
+          <Route path="/vistaPedidosListos">
+            <Hola/>
           </Route>
           <Route path="/">
             <Home />
