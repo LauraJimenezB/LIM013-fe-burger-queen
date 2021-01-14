@@ -83,7 +83,7 @@ export function Cocina () {
     const sendToMesonero = (idOrder) => {
           const newOrders = orders.filter((order)=>order.id !== idOrder);
           setOrders(newOrders);
-          firebase.firestore().collection('orders').doc(idOrder).update({listo: true});
+          firebase.firestore().collection('orders').doc(idOrder).update({listo: true, delivered: false});
       }; 
 
     const listOrders = orders.map((order)=> 
