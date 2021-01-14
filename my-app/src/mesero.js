@@ -10,8 +10,9 @@ export function Mesero() {
       <div>
         <header>
           <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
-          <h1>BURGER QUEEN <PedidosListos/> <Back/></h1>
-          
+          <h1>BURGER QUEEN </h1>
+          <div> <PedidosListos/></div>
+          <div> <Back/></div>
         </header>
         <VistaMenu/>
       </div>
