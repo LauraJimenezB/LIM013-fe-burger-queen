@@ -47,7 +47,7 @@ const updateItem = (idItem, isMore) => {
   const cant = (isMore) ?  1 :  -1;
   const newItems = selectedItems.map((item) => {
     if (item.id === idItem) {
-      if (item.cantidad === 0 && !isMore) {
+      if (item.cantidad === 1 && !isMore) {
         return item;
       }
       return {
