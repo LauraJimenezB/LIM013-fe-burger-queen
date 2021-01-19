@@ -1,15 +1,13 @@
 body {
     background-color: rgb(240, 235, 235);
 }
-
-
+/*----Header-----------------------------------------------------*/
 .Logo {
     height: 40px;
     width: 40px;
     margin-top: 8px;
     margin-left: 11px;
 }
-
 .logoImg {
     background-color: rgb(255, 255, 255);
     border-radius: 100%;
@@ -20,7 +18,6 @@ body {
     margin-right: 10px;
     margin-left: 45px;
 }
-
 .button1 {
     background: none;
     border: 0;
@@ -28,17 +25,14 @@ body {
     font: inherit;
     outline: none ;
 }
-
 h1 {
     margin-top: 18px;
     font-size: 27px;
 }
-
 header, .mainPedidos {
     display:inline-flex;
     align-content: center;
 }
-
 header {
     background-color: #B23A48;
     width: 100vw;
@@ -46,11 +40,86 @@ header {
     color:rgb(255, 255, 255);
 }
 
+/*-------------------------------------------Nav Bar---------------*/
+.headerLogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.divLogo{
+  display: flex;
+    flex-direction: row;
+}
+.btnHeader{
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width:400px;
+}
+.btnHeaderCocina{
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width:4vw;
+}
+.btnHeader1{
+  background-color: #B23A48;
+  width: 150px;
+  padding: 5px;
+  height: 50px;
+  outline:none;
+  border-style: hidden;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  top:10px;
+  margin-left: 20px;
+}
+.btnHeader2{
+  background-color: #B23A48;
+  width: 60px;
+  padding: 5px;
+  height: 50px;
+  outline:none;
+  border-style: hidden;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  top:10px;
+  margin-left: 20px;
+}
+.btnHeader3{
+  background-color: #B23A48;
+  width: 200px;
+  padding: 5px;
+  height: 50px;
+  outline:none;
+  border-style: hidden;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  top:10px;
+  margin-left: 20px;
+}
+.btn-log-out {
+  width:35px;
+  height: 35px;
+  margin-left: 20px;
+}
+
+
 section {
     max-width: 100vw;
     background-color: rgb(240, 235, 235);
 }
 
+
+/*-------------order.js-------------------------------------*/
 .order {
     width: 85vw;
     margin-left: auto;
@@ -61,8 +130,10 @@ section {
     padding: 15px;
     padding-left: 50px;
     padding-right: 50px;
+    border-color:rgb(201, 194, 194);
+    border-style: solid;
+    border-width: 2px;
 }
-
 .orderHeader {
     display: flex;
     flex-direction: row;
@@ -72,17 +143,15 @@ section {
     margin-left: auto;
     margin-top: 15px;
 }
-
 .inLine {
     display: flex;
     flex-direction: row;
 }
-
 .inLineSpace {
     margin-right: 20px;
 }
 
-
+/*--------------------menu.js (mostrar items)-------------------------------------*/
 .menuSection {
     background-color: rgb(240, 235, 235);
     padding: 5px;
@@ -90,9 +159,7 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: 90vw;
-
 }
-
 .listItems {
     list-style-type: none;
     display:flex;
@@ -103,7 +170,6 @@ section {
     font-size: large;
     overflow-x:hidden;
 }
-
 .menuItem {
     width: 190px;
     height: 75px;
@@ -117,80 +183,26 @@ section {
     border-radius: 8px;
     flex-shrink: 0;
 }
-
 .menuItem:hover,
 .menuItem:focus {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
 }
-
 .divNameItem {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 5px;
 }
-
 .divImgItem {
     display: flex;
     justify-content: center;
 }
-
 .imgItem {
     width: 65px;
     height:65px;
     margin:5px;
 }
-
-.listSelectedItems {
-    font-size: large;
-    list-style-type: none;
-    display:flex;
-    flex-direction:column;
-    width:85vw;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.selectedItem {
-    margin: 10px;
-    width:85vw;
-    color: #2A2D34;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-}
-
-.divSelectedItem {
-    width:130px;
-}
-
-.divSelectedItemT {
-    width:130px;
-    font-weight: bold;
-}
-
-.divSelectedItem:first-child {
-    width:230px;
-}
-
-.divSelectedItemT:first-child {
-    width:230px;
-    font-weight: bold;
-}
-
-span {
-    margin-right: 5px;
-} 
-
-h2 {
-    color: #2A2D34;
-    margin-top: 0px;
-    margin-bottom: 5px;
-} 
 
 .menuHeader {
     width: 90vw;
@@ -199,7 +211,6 @@ h2 {
     margin-top: 15px;
     justify-content: space-between;
 }
-
 .btnMenuType {
     background-color: rgb(240, 235, 235);
     width: 15vw;
@@ -217,7 +228,6 @@ h2 {
     flex-direction: row;
     justify-content: center;
 }
-
 .btnMenuType:first-child {
     color: #B23A48;
 }
@@ -227,6 +237,56 @@ h2 {
     background-color: rgb(177, 175, 175);
 }
 */
+
+/*-------------------order.js (items seleccionados)--------------------------*/
+.listSelectedItems {
+    font-size: large;
+    list-style-type: none;
+    display:flex;
+    flex-direction:column;
+    width:75vw;
+    flex-wrap: wrap;
+    padding-inline-start: 10px;
+}
+.selectedItem {
+    margin: 10px;
+    width:85vw;
+    color: #2A2D34;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.divSelectedItem {
+    width:130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.divSelectedItemT {
+    width:130px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.divSelectedItem:first-child {
+    width:230px;
+    justify-content: flex-start;
+}
+.divSelectedItemT:first-child {
+    width:230px;
+    font-weight: bold;
+    justify-content: flex-start;
+}
+span {
+    margin-right: 5px;
+} 
+h2 {
+    color: #2A2D34;
+    margin-top: 0px;
+    margin-bottom: 5px;
+} 
 .btnSend {
     background-color: #5C946E;
     width: 170px;
@@ -241,31 +301,35 @@ h2 {
     font-weight: bold;
     font-size: 18px;
 }
-
 .deleteBtn {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
-
 .iconBtn {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 5px;
+    width: 25px;
+    height: 25px;
 }
-
 .iconLogo {
     width: 40px;
     height: 40px;
     margin-right: 10px;
 }
-
 .nameCategory {
     position: relative;
     top: 10px;
 }
+.inputCliente{
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.767);
+    border:0;
+    border-bottom: 2.5px solid rgb(177, 175, 175);
+    font-size: 16px;
+    font-style: italic;
+    color:rgb(177, 175, 175);
+}
 
-/*---------------------------------------*/
+
+/*----------------vistaPedidosListos.js------------------------------*/
 .orderSpace {
     display: flex;
     flex-direction: row;
@@ -278,11 +342,6 @@ h2 {
     border-radius: 20px;
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.767);
-    /*
-    background-image: url(../img/streeFoodShot5.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    */
 }
 .divSingleOrder button {
     color: white;
@@ -306,31 +365,171 @@ h2 {
     flex-direction: column;
     justify-content: center;
 }
+.divPreparación {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .divListo {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: space-between;
+}
+.tiempoListo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: hidden;
+    border-color: grey;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    width: 130px;
 }
 .divListo button {
-    width: 150px;
+    width: 130px;
 }
-/* .vistaTodo {
-    width: 50PX;
-    height: 50px;
-} */
+
+/*-----------------------cocina.js (pedidos en preparación)------------------*/
+.btnPreparacion{
+    background-color: rgba(141, 138, 138, 0.842);
+    color: white;
+    font-size: 19px;
+    outline: none;
+    border-style: hidden;
+    height:35px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+.btnPreparacion:hover{
+    background-color: darkgreen;
+}
+.btnPreparado{
+    background-color: darkgreen;
+    color: white;
+    font-size: 19px;
+    outline: none;
+    border-style: hidden;
+    height:35px;
+    border-radius: 12px;
+}
+.viewCocina{
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+}
+.mainCocina{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:40px;
+}
+.orderCocina {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(240, 235, 235);
+    padding-inline-start: 0%;
+}
+.divOrderCocina {
+    margin: 15px;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 18px;
+    border-color:rgb(201, 194, 194);
+    border-style: solid;
+    background-color:rgba(255, 255, 255, 0.87);
+    color: #2e374b;
+    border-width: 2px;
+}
+.btnSendToMesero{
+    background-color: rgba(141, 138, 138, 0.842);
+    color: white;
+    font-size: 19px;
+    outline: none;
+    border-style: hidden;
+    height:60px;
+    border-radius: 20px;
+}
+.btnSendToMesero:hover{
+    background-color: firebrick;
+}
+.spanOrder{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btnListo {
+    background-color:firebrick;
+    color: white;
+    font-size: 19px;
+    outline: none;
+    border-style: hidden;
+    height:60px;
+    border-radius: 20px;
+}
+.tiempoListoCocina {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: hidden;
+    border-color: grey;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    width: 270px;
+}
+.heightOrder{
+    height:220px;
+}
+
+/*---------------------------notificaciones Mesero----------*/
+.notif {
+    background-color: white;
+    color: #B23A48;
+    padding:5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    font-size: 15px;
+    position: relative;
+    top:12px;
+    left:-5px;
+    text-align: center;
+}
+.notif span{
+    position: relative;
+    left:3px;
+    top:-3px;
+    font-weight: bold;
+}
+.listoNotif{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*------------------Tablet----------------------------------------------------*/
 @media only screen and (max-width: 1025px) {
+    .menuSection {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
     .menuHeader {
-        width: 80vw;
+        width: 100vw;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         margin-top: 15px;
         height:200px;
-        justify-content: center;
+        margin-left: 0%;
+        margin-right: 20px;
+        justify-content: flex-start;
     }
     .btnMenuType {
-        width: 25vw;
-        height: 40px;
+        width: 30vw;
+        height: 20px;
         border-style: hidden;
         color: rgb(44, 44, 44);
         font-weight: bold;
@@ -341,15 +540,161 @@ h2 {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        font-size: 20px;
     }
-    
+    .menuItem {
+        font-size: 20px;
+        height: 100px;
+        width: 220px;
+    }
+    .listItems{
+        margin:0%;
+        height: 250px;
+        width:95vw;
+        padding-inline-start: 20px;
+    }
+    .header{
+        font-size: 18px;
+    }
+    .listSelectedItems{
+        font-size: 20px;
+        width:75vw;
+        padding-inline-start: 0px;
+    }
+    .selectedItem {
+        width:90vw;
+    }
   } 
-  .btnPreparacion{
-    background-color: rgb(153, 149, 149);
-  }
-  .btnPreparado{
-    background-color: darkgreen;
-  }
-  .btnSendToMesonero{
-      background-color: firebrick;
-  }
+  
+/*-------------------Movil-----------------------------------*/
+@media only screen and (max-width: 730px) {
+    h1{
+        display: none;
+    }
+    .btn-log-out{
+        width:30px;
+        height: 30px;
+    }
+    .btnHeader1{
+        font-size: 15px;
+        width:75px;
+        text-align: left;
+    }
+    .btnHeader2{
+        font-size: 15px;
+        width:45px;
+    }
+    .logoImg{
+        width:50px;
+        height: 50px;
+        margin-left: 15px;
+    }
+    .Logo{
+        width:35px;
+        height: 35px;
+        margin-left: 8px;
+    }
+    .headerLogo{
+        height:65px;
+    }
+    .menuSection {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .menuHeader {
+        width: 85vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        height:150px;
+        margin-right: 0%;
+        margin-left: 20px;
+        justify-content: flex-start;
+    }
+    .btnMenuType {
+        width: 42vw;
+        height: 15px;
+        border-style: hidden;
+        color: rgb(44, 44, 44);
+        font-weight: bold;
+        font-size: 15px;
+        border-bottom: rgb(177, 175, 175);
+        border-bottom-style: hidden;
+        outline: none ;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .btnMenuType .iconLogo{
+        width:30px;
+        height: 30px;
+    }
+    .menuItem {
+        font-size: 15px;
+        height: 70px;
+        width: 180px;
+    }
+    .listItems{
+        margin:0%;
+        height: 250px;
+        width:95vw;
+        padding-inline-start: 20px;
+    }
+    .header{
+        font-size: 18px;
+    }
+    .listSelectedItems{
+        font-size: 15px;
+        width:75vw;
+        padding-inline-start: 0px;
+    }
+    .selectedItem {
+        width:90vw;
+    }
+    .order{
+        width:90vw;
+        padding:5px;
+        font-size: 12px;
+    }
+    .orderHeader{
+        flex-direction: column;
+    }
+    .inLineSpace{
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    .inputCliente{
+        font-size: 12px;
+    }
+    .deleteBtn{
+        width:20px;
+        height: 20px;
+    }
+    .iconBtn{
+        width:20px;
+        height: 20px;
+    }
+    .btnSend{
+        font-size: 15px;
+    }
+    /*---------------pedidos listos Mesero-------*/
+    .divOrderCocina{
+        font-size: 15px;
+    }
+    .btnPreparado{
+        font-size: 15px;
+    }
+    .btnSendToMesero{
+        font-size: 15px;
+    }
+    /*---------------------cocina---------------*/
+    .btnHeader3{
+        font-size: 15px;
+        width:50px;
+        margin-left: 40px;
+    }
+    .btnPreparacion{
+        font-size: 15px;
+    }
+}
