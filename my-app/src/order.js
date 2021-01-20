@@ -60,20 +60,20 @@ export function Order (props) {
         <div className="inLine"><img src={orderPic} className="iconLogo" alt="orderLogo"/>
         <h2>ORDEN</h2></div>
         <div className="inLine">
-            <div className="inLineSpace">Cliente: <input type="text" placeholder="Nombre del cliente" id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/></div>
+            <div className="inLineSpace">Cliente: <input type="text" placeholder="Nombre del cliente" className='inputCliente' id="nombreCliente" value={input} onInput={e => setInput(e.target.value)}/></div>
         </div>
       </div>
       <ul className='listSelectedItems'>
           <li className='selectedItem'>
               <div className="divSelectedItemT">Item</div>
               <div className="divSelectedItemT">Cantidad</div>
-              <div className="divSelectedItemT">Precio Unitario</div>
+              <div className="divSelectedItemT">Precio</div>
               <div className="divSelectedItemT">Precio total</div>
               <div className="divSelectedItemT"></div>
           </li>
           {listMenu}
       </ul>
-      <h3>{'Monto Total'} {input}{': $'}{total}</h3>
+      <h3>{'Monto Total'}{': $'}{total}</h3>
       <button type="submit" className="btnSend" onClick={()=>{sendOrder(input, orderedItems, total); resetOrder()}}>Enviar la orden</button>
       </section>)
     }

@@ -1,32 +1,46 @@
-import { BackMesero } from './backMesero';
+import { PedidosListos } from './pedidosListos.js';
+import { Home } from './toHome.js';
+import { ToMenu } from './toMenu';
 import burguer from './burguer.svg';
 import { useState, useEffect, React } from 'react';
 import firebase from './firebase';
 
-export function Hola() {
+export function Hola(props) {
   const [orders, setOrders] = useState([]);
   const [items, setItems] = useState([]);
 
   //Traer orders de firebase
   useEffect(() => {
+      let mounted = true;
       firebase.firestore().collection('orders').where('delivered','==',false).orderBy('time', 'desc').orderBy('date', 'desc').onSnapshot((snapshot)=>{
-        const orders = snapshot.docs.map((doc)=> ({
-          id: doc.id,
-          ...doc.data()
-        }))
-        setOrders(orders);
-      })
+        if (mounted) {
+          const orders = snapshot.docs.map((doc)=> ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          setOrders(orders);
+        }
+        })
+        return function cleanup() {
+          mounted = false;
+        }
       }, [])
 
   //Traer items de firebase
   useEffect(() => {
+    let mounted = true;
     firebase.firestore().collection('items').onSnapshot((snapshot)=>{
+      if (mounted) {
       const items = snapshot.docs.map((doc)=> ({
         id: doc.id,
         ...doc.data()
       }))
       setItems(items);
+    }
     })
+    return function cleanup() {
+      mounted = false;
+    }
   }, [])
 
 
@@ -42,10 +56,11 @@ const delivered = (idOrder) => {
 }; 
 
       const listOrders = orders.map((order)=> 
-      <div key={order.id} className='divSingleOrder'>
-          <div className='dateOrder'><span className='spanDateOrder'>Fecha: {order.date}</span></div>
-          <span>Cliente: {order.cliente}</span>
-          <ul className="listItems-order">
+      <div key={order.id} className='divOrderCocina'>
+          <div className='heightOrder'>
+            <div className='dateOrder'><span className='spanDateOrder'>Fecha: {order.date}</span></div>
+            <div className='spanOrder'><span>Cliente: {order.cliente}</span></div>
+            <ul className="listItems-order">
               { items.length > 0 ?
                    order.list.map((element)=>
                       <li key={element.id}>
@@ -53,27 +68,40 @@ const delivered = (idOrder) => {
                           <span>{getName(element.id)}</span>
                       </li>)
               : 'loading' }
-              <span>Total: ${order.total}</span>
-              <br></br>
-          </ul>
-          <span>Total: ${order.total}</span>
+            </ul>
+          <div className='spanOrder'><span>Total: ${order.total}</span></div>
+          </div>
           <div className='divEstadoPreparación'>
-             <div>Inicio de preparación: {order.time}</div>
+            <button type="button" className='btnPreparado'>Preparado</button>
+            <div>Inicio de preparación: {order.time}</div>
             <div>Fin de preparación: {order.timeFinal}</div>
             {/*<div>Tiempo: {timePassed(order.timeFinal, order)}</div>*/}
           </div>
           <div className='divListo'>
-            <button type="submit" className="btnSendToMesonero" onClick={()=>delivered(order.id)}>Entregado</button>
+            <div className='tiempoListo'>
+              <span>Tiempo:</span>
+              <span>{order.timePrep}</span>
+            </div>
+            <button type="submit" className="btnSendToMesero" onClick={()=>delivered(order.id)}>Entregar</button>
           </div>
       </div>
       )
 
      return(<div>
-      <header>
-      <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
-      <h1>BURGER QUEEN </h1> 
-      <div> <BackMesero/></div>
-    </header>
+       <header className='headerLogo'>
+        <div className='divLogo'>
+          <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
+          <h1>BURGER QUEEN </h1> 
+        </div>
+        <div className='btnHeader'>
+            <div><ToMenu/></div>
+            <div className='listoNotif'>
+              <PedidosListos/>
+              <div className='notif'><span>{orders.length}</span></div>
+            </div>
+            <div><Home/></div>
+        </div>
+     </header>
     <ul className='orderSpace'>{listOrders}</ul>
     </div>
     )

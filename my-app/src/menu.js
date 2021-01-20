@@ -5,20 +5,7 @@ import dishPic from './dish.svg';
 import bebidasPic from './tea.svg';
 import burgerPic from './hamburger.svg';
 import friesPic from './french-fries.svg';
-/*
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
-
-// install Swiper components
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
-*/
 export function Menu (props) {
     const items = props.items;
     let someItems = items;
@@ -59,34 +46,18 @@ export function Menu (props) {
               <button type="button" className='btnMenuType' onClick={hamburguesasClick}><img src={burgerPic} className="iconLogo" alt="burgerIcon"/><span className="nameCategory">Hamburguesas</span></button>
               <button type="button" className='btnMenuType' onClick={acompañamientosClick}><img src={friesPic} className="iconLogo" alt="friesIcon"/><span className="nameCategory">Acompañamientos</span></button>
             </div>
-            <ul className="listItems"
-    >{selectedItems.map((item)=>
-                    <li className="menuItem" onClick={()=>props.addItem(item)} key={item.id}>
-                        <div className='divImgItem'>
-                            <img className='imgItem' src={item.img} alt={item.id}/>
-                        </div>
-                        <div className='divNameItem'>
-                            <span>{item.nombre}</span>
-                            <span>{'$'+item.precio}</span>
-                        </div>
-                    </li>
-                )}
-    </ul>
-    {/*<Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      ...
-    </Swiper>*/}
+            <ul className="listItems">{selectedItems.map((item)=>
+              <li className="menuItem" onClick={()=>props.addItem(item)} key={item.id}>
+                <div className='divImgItem'>
+                  <img className='imgItem' src={item.img} alt={item.id}/>
+                </div>
+                <div className='divNameItem'>
+                  <span>{item.nombre}</span>
+                  <span>{'$'+item.precio}</span>
+                </div>
+              </li>
+              )}
+            </ul>
           </section>
       );
   }

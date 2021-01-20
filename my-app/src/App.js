@@ -36,15 +36,18 @@ import { React } from 'react';
 // import {useCollection} from 'react-firebase-hooks/firestore';
 
 import { Mesero } from './mesero.js'
+import { NavMenu } from './navMenu.js'
 import { Cocina } from './cocina.js'
 import { Home } from './home.js'
 import { Hola } from './vistaPedidosListos.js'
 import { Registro } from './Auth.jsx'
 /* import {useFirebaseApp} from 'reactfire'; */
 
-export default function App() {
  /*  const firebase = useFirebaseApp();
   console.log(firebase); */
+import { CocinaEnviados } from "./cocinaEnviados.js";
+
+export default function App(props) {
   return (
     <Router>
       <div>
@@ -55,8 +58,14 @@ export default function App() {
           <Route path="/Mesero">
             <Mesero />
           </Route>
+          <Route path="/Mesero1">
+            <NavMenu />
+          </Route>
           <Route path="/Cocina">
             <Cocina />
+          </Route>
+          <Route path="/CocinaEnviados">
+            <CocinaEnviados/>
           </Route>
           <Route path="/vistaPedidosListos">
             <Hola/>

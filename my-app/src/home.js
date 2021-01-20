@@ -10,7 +10,7 @@ function Ingresar() {
   let history = useHistory();
 
   function handleClick() {
-    history.push("/Mesero");
+    history.push("Mesero");
   }
 
   return (

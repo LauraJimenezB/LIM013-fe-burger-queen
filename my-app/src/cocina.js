@@ -2,6 +2,9 @@ import { useState, useEffect, React } from 'react';
 import firebase from './firebase';
 import './Pedidos.css';
 import burguer from './burguer.svg';
+import { Home } from './toHome.js';
+import { ToPedidosCocina } from './toPedidosCocina.js';
+import { ToPedidosEnviados } from './toPedidosEnviados.js';
 
 export function Cocina () {
     const [orders, setOrders] = useState([]);
@@ -9,25 +12,37 @@ export function Cocina () {
 
     //Traer orders de firebase
     useEffect(() => {
+        let mounted = true;
         firebase.firestore().collection('orders').where('listo','==',false).orderBy('time', 'desc').orderBy('date', 'desc').onSnapshot((snapshot)=>{
+          if (mounted) {
           const orders = snapshot.docs.map((doc)=> ({
             id: doc.id,
             ...doc.data()
           }))
           setOrders(orders);
+        }
         })
+        return function cleanup() {
+          mounted = false;
+        }
         }, [])
 
       
         //Traer items de firebase
         useEffect(() => {
+          let mounted = true;
           firebase.firestore().collection('items').onSnapshot((snapshot)=>{
+            if (mounted) {
             const items = snapshot.docs.map((doc)=> ({
               id: doc.id,
               ...doc.data()
             }))
             setItems(items);
+          }
           })
+          return function cleanup() {
+            mounted = false;
+          }
         }, [])
 
 
@@ -35,11 +50,6 @@ export function Cocina () {
         const getItem =  items.filter((item)=>item.id===idElement)[0];
         return (getItem.nombre);
     }
-
-    const checkClick = (order) => {
-      const timeFinal = new Date().toLocaleTimeString();
-      firebase.firestore().collection('orders').doc(order.id).update({timeFinal: timeFinal, estado: 'Preparado'});
-     } 
 
     const timePassed = (timeFinal, order) => {
       if(timeFinal) {
@@ -51,7 +61,12 @@ export function Cocina () {
         if (timeInit.length===10) {
           timeInit = '0'+timeInit;
         }
-        let hoursPassed = timeFinalB.substr(0, 2)-timeInit.substr(0, 2);
+        let hoursPassed;
+        if (timeFinalB.substr(9, 2)==='PM'){
+          hoursPassed=timeFinalB.substr(0,2)-timeInit.substr(0, 2)+12;
+        } else if (timeFinalB.substr(9, 2)==='AM'){
+          hoursPassed=timeFinalB.substr(0, 2)-timeInit.substr(0, 2);
+        }
         let minPassed = timeFinalB.substr(3, 2)-timeInit.substr(3, 2);
         let secPassed = timeFinalB.substr(6, 2)-timeInit.substr(6, 2);
         if(secPassed<0){
@@ -79,48 +94,62 @@ export function Cocina () {
       }
       return;
     }
-      
-    const sendToMesonero = (idOrder) => {
-          const newOrders = orders.filter((order)=>order.id !== idOrder);
+  /*
+    const sendToMesonero = (orderEl) => {
+          const newOrders = orders.filter((order)=>order.id !== orderEl.id);
           setOrders(newOrders);
-          firebase.firestore().collection('orders').doc(idOrder).update({listo: true, delivered: false});
+          const timePrep = timePassed(orderEl.timeFinal, orderEl);
+          firebase.firestore().collection('orders').doc(orderEl.id).update({listo: true, delivered: false, timePrep:timePrep});
       }; 
+      */
+
+    const sendToMesero = (orderEl) => {
+        const timeFinal = new Date().toLocaleTimeString();
+        const newOrders = orders.filter((order)=>order.id !== orderEl.id);
+          setOrders(newOrders);
+          const timePrep = timePassed(timeFinal, orderEl);
+          firebase.firestore().collection('orders').doc(orderEl.id).update({timeFinal: timeFinal, listo: true, delivered: false, timePrep:timePrep});
+          } 
 
     const listOrders = orders.map((order)=> 
-    <div key={order.id} className='divSingleOrder'>
-        <div className='dateOrder'><span className='spanDateOrder'>Fecha: {order.date}</span></div>
-        <span>Cliente: {order.cliente}</span>
-        <ul className="listItems-order">
-            { items.length > 0 ?
-                 order.list.map((element)=>
-                    <li key={element.id}>
-                        <span>{element.cantidad}</span>
-                        <span>{getName(element.id)}</span>
-                    </li>)
-            : 'loading' }
-            <span>Total: ${order.total}</span>
-            <br></br>
-        </ul>
-        <span>Total: ${order.total}</span>
-        <div className='divEstadoPreparación'>
-          <button type="button" className={ order.estado==='En preparación' ? "btnPreparacion" : 'btnPreparado' } onClick={()=>checkClick(order)}>{order.estado}</button>
+    <div key={order.id} className='divOrderCocina'>
+        <div className='heightOrder'>
+            <div className='dateOrder'><span className='spanDateOrder'>Fecha: {order.date}</span></div>
+            <div className='spanOrder'><span>Cliente: {order.cliente}</span></div>
+            <ul>
+              { items.length > 0 ?
+                   order.list.map((element)=>
+                      <li key={element.id}>
+                          <span>{element.cantidad}</span>
+                          <span>{getName(element.id)}</span>
+                      </li>)
+              : 'loading' }
+            </ul>
+          <div className='spanOrder'><span>Total: ${order.total}</span></div>
+          </div>
+        <div className='divPreparación'>
           <div>Inicio de preparación: {order.time}</div>
-          <div>Fin de preparación: {order.timeFinal}</div>
-          <div>Tiempo: {timePassed(order.timeFinal, order)}</div>
-        </div>
-        <div className='divListo'>
-          <button type="submit" className="btnSendToMesonero" onClick={()=>{sendToMesonero(order.id)}}>Listo</button>
+          <button type="button" className="btnPreparacion" onClick={()=>sendToMesero(order)}>Preparado</button>
         </div>
     </div>
     )
 
-    return(<div>
-      <header>
-      <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
-      <h1>BURGER QUEEN</h1>
-    </header><ul className='orderSpace'>{listOrders}</ul>
+    return(<div className='viewCocina'>
+      <header className='headerLogo'>
+        <div className='divLogo'>
+          <div className='logoImg'><img src={burguer} className="Logo" alt="logo"/></div>
+          <h1>BURGER QUEEN</h1>
+        </div>
+        <div className='btnHeader'>
+          <div> <ToPedidosCocina/></div>
+          <div> <ToPedidosEnviados/></div>
+          <div> <Home/></div>
+        </div>
+      </header>
+      <main className='mainCocina'>
+        <ul className='orderCocina'>{listOrders}</ul>
+      </main>
     </div>
     )
-    
 }
 
