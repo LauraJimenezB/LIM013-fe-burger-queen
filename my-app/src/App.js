@@ -39,8 +39,12 @@ import { Mesero } from './mesero.js'
 import { Cocina } from './cocina.js'
 import { Home } from './home.js'
 import { Hola } from './vistaPedidosListos.js'
+import { Registro } from './Auth.jsx'
+/* import {useFirebaseApp} from 'reactfire'; */
 
 export default function App() {
+ /*  const firebase = useFirebaseApp();
+  console.log(firebase); */
   return (
     <Router>
       <div>
@@ -56,6 +60,9 @@ export default function App() {
           </Route>
           <Route path="/vistaPedidosListos">
             <Hola/>
+          </Route>
+          <Route path="/registro">
+            <Registro/>
           </Route>
           <Route path="/">
             <Home />
