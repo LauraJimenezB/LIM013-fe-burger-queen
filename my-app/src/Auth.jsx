@@ -14,8 +14,11 @@ import 'firebase/auth';
 
 //al mismo tiempo que firebase crea un usuario, guarda una sesion localmente de ese usuario
 export function Registro(props) {
-const [ email, setEmail ] = useState('');
-const [ password, setPassword ] = useState('');
+const [ emailM, setEmailM ] = useState('');
+const [ passwordM, setPasswordM ] = useState('');
+
+const [ emailJ, setEmailJ ] = useState('');
+const [ passwordJ, setPasswordJ ] = useState('');
 /* 
 const user = () => firebase.auth().currentUser; */
 //metodo auth que retorna un metodo auth
@@ -26,50 +29,52 @@ const firebase=useFirebaseApp();
 const user = useUser();
 
 
-const registro = async ()=> {
-   await firebase.auth().createUserWithEmailAndPassword(email,password)
+const registroM = async ()=> {
+   await firebase.auth().createUserWithEmailAndPassword(emailM,passwordM)
   
 }
 
+const registroJ = async ()=> {
+  await firebase.auth().createUserWithEmailAndPassword(emailJ,passwordJ)
+ 
+}
 
-function PushIniciodeSesion() {
+function PushIniciodeSesionM() {
 
   let history = useHistory();
 
   function clickAgainInicio() {
     history.push("/");
   }
-  registro();
+  registroM();
   return (
     <button className="botonIngresarCocina" type="submit" onClick={clickAgainInicio}>
-      Logout...
+      Registro
     </button>
   );
 }
-
-function PushInicioLogout() {
+function PushIniciodeSesionJ() {
 
   let history = useHistory();
 
-  function clickAgainInicioLogout() {
+  function clickAgainInicio() {
     history.push("/");
   }
-  registro();
+  registroJ();
   return (
-    <button className="botonIngresarCocina" type="submit" onClick={clickAgainInicioLogout}>
-      Ingresar...
+    <button className="botonIngresarCocina" type="submit" onClick={clickAgainInicio}>
+      Registro
     </button>
   );
-}
-
-const login = async ()=> {
+  }
+/* const login = async ()=> {
   await firebase.auth().signInWithEmailAndPassword(email,password)
  
-}
+} */
 
-const botonLogout = async () => {
+/* const botonLogout = async () => {
   await firebase.auth().signOut();
-}
+} */
 
 /* export function Registro() { */
   
@@ -77,9 +82,6 @@ const botonLogout = async () => {
       
         
         <div className="InicioSesion">
-          {/*  <div>
-             {user.data.email}
-         </div> */}
         <div className="Ingresar">
         <div className="DivLogo">
          <img src={burguer} className="Logo" alt="logo"/>
@@ -88,8 +90,6 @@ const botonLogout = async () => {
         
          </div>
         </div>
-      {/*  {
-        !user.data && */}
         <main>
           <div className="user">
            <h2>Mesero/a</h2>
@@ -97,29 +97,25 @@ const botonLogout = async () => {
             .target referencia al documento de html que haya disparado el evento de cambio
             el valor del control se obtiene con value */}
            <input className="meseroRegistro" type="text" placeholder="Nombre" id="nameRegistroUserM"/>
-           <input className="meseroRegistro" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmail(ev.target.value)} id="emailRegistroUserM"/>
-           <input className="meseroRegistro" type="text" placeholder="Contraseña"  onChange={ (ev)=> setPassword(ev.target.value)} id="passwordRegistroUserM"/>
-           {/*<button onClick={mix}>Registrar</button>*/}
-           <PushIniciodeSesion/>
-           {/* <div>
-           <PushIniciodeSesion/>
-           </div> */}
+           <input className="meseroRegistro" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmailM(ev.target.value)} id="emailRegistroUserM"/>
+           <input className="meseroRegistro" type="text" placeholder="Contraseña"  onChange={ (ev)=> setPasswordM(ev.target.value)} id="passwordRegistroUserM"/>
+           {user.data &&
+           <PushIniciodeSesionM/>
+            }
           </div>
           
           <div className="user">
            <h2>Jefe de cocina</h2>
            <input className="meseroRegistro" type="text" placeholder="Nombre" id="nameRegistroUserJ"/>
-           <input className="cocinaIngreso" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmail(ev.target.value)} id="emailRegistroUserJ"/>
-           <input className="cocinaIngreso" type="text" placeholder="Contraseña" onChange={ (ev)=> setPassword(ev.target.value)} id="passwordRegistroUserJ"/>
-           {/*<button onClick={mix}>Registrar</button>*/}
-           <PushIniciodeSesion/>
+           <input className="cocinaIngreso" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmailJ(ev.target.value)} id="emailRegistroUserJ"/>
+           <input className="cocinaIngreso" type="text" placeholder="Contraseña" onChange={ (ev)=> setPasswordJ(ev.target.value)} id="passwordRegistroUserJ"/>
+           { user.data &&
+             <PushIniciodeSesionJ/>
+             }
+
            </div>
            </main>
-       {/*   }  */}
            </div>
-           {
-             user.data && <PushInicioLogout/>
-           }
            </div>
           
           
