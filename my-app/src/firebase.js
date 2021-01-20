@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-var firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyDsWyDiJldpRwr4TjACA72TBUHntw2o85A",
     authDomain: "burger-queen-ed261.firebaseapp.com",
     projectId: "burger-queen-ed261",

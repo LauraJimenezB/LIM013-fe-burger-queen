@@ -35,7 +35,6 @@ header, .mainPedidos {
 }
 header {
     background-color: #B23A48;
-    width: 100vw;
     height: 75px;
     color:rgb(255, 255, 255);
 }
@@ -564,7 +563,110 @@ h2 {
     .selectedItem {
         width:90vw;
     }
+
   } 
+  /*
+  .DivLogo{
+    background-color: #B23A48;
+    width: 60vw;
+    height: 75px;
+    color:rgb(255, 255, 255);
+  }
+  .Ingresar {
+    box-shadow: 7px 0px 14px 0px rgba(4, 109, 31, 0.2);
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 10px;
+    width: 60%;
+    padding: 20px;
+}
+  .logo{
+      align-content: center;
+  }
+ .Titulo h1{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+  } 
+  .InicioSesion{
+    margin: 0px;
+    font-size: 13px;
+    font-family: "Lato", sans-serif;
+  }
+  .btnPreparacion{
+    background-color: rgb(153, 149, 149);
+  }
+  .btnPreparado{
+    background-color: darkgreen;
+  }
+  .btnSendToMesonero{
+      background-color: firebrick;
+  }
+  .user{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 45%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .user input{
+    margin-bottom: 15px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+.botonIngresarMesero{
+    background: #f39509;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 80px;
+   margin-bottom: 20px; 
+    color: black;
+    box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    height: 35px;
+    font-size: large;
+  
+}
+
+.botonIngresarCocina{
+    background:green;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 80px;
+   /*  margin-bottom: 30px; */
+   /*
+    color: black;
+    box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    font-size: large;
+   
+}
+*/
+/* .DivLogo{
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    align-content: center;
+    margin-top: 8px;
+    margin-right: 10px;
+    margin-left: 45px;
+} */
+/*
+  h2{
+    font: oblique bold 120% cursive;
+    margin-bottom: 20px;
+    text-align:center;
+    margin-top: 20px;
+    font-size: x-large;
+  }
+  */
+   
   
 /*-------------------Movil-----------------------------------*/
 @media only screen and (max-width: 730px) {
