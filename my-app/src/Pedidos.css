@@ -508,64 +508,8 @@ h2 {
     flex-direction: row;
 }
 
+/*-------------------------vista Registro & Inicio de sesión----------------------*/
 
-/*------------------Tablet----------------------------------------------------*/
-@media only screen and (max-width: 1025px) {
-    .menuSection {
-        margin-left: 0%;
-        margin-right: 0%;
-    }
-    .menuHeader {
-        width: 100vw;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 15px;
-        height:200px;
-        margin-left: 0%;
-        margin-right: 20px;
-        justify-content: flex-start;
-    }
-    .btnMenuType {
-        width: 30vw;
-        height: 20px;
-        border-style: hidden;
-        color: rgb(44, 44, 44);
-        font-weight: bold;
-        font-size: 18px;
-        border-bottom: rgb(177, 175, 175);
-        border-bottom-style: hidden;
-        outline: none ;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        font-size: 20px;
-    }
-    .menuItem {
-        font-size: 20px;
-        height: 100px;
-        width: 220px;
-    }
-    .listItems{
-        margin:0%;
-        height: 250px;
-        width:95vw;
-        padding-inline-start: 20px;
-    }
-    .header{
-        font-size: 18px;
-    }
-    .listSelectedItems{
-        font-size: 20px;
-        width:75vw;
-        padding-inline-start: 0px;
-    }
-    .selectedItem {
-        width:90vw;
-    }
-
-  } 
-  /*
   .DivLogo{
     background-color: #B23A48;
     width: 60vw;
@@ -640,13 +584,13 @@ h2 {
     border-radius: 10px;
     padding: 7px 80px;
    /*  margin-bottom: 30px; */
-   /*
+   
     color: black;
     box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.2);
     font-size: large;
    
 }
-*/
+
 /* .DivLogo{
     background-color: rgb(255, 255, 255);
     border-radius: 100%;
@@ -657,7 +601,7 @@ h2 {
     margin-right: 10px;
     margin-left: 45px;
 } */
-/*
+
   h2{
     font: oblique bold 120% cursive;
     margin-bottom: 20px;
@@ -665,8 +609,64 @@ h2 {
     margin-top: 20px;
     font-size: x-large;
   }
-  */
-   
+
+
+/*------------------Tablet----------------------------------------------------*/
+@media only screen and (max-width: 1025px) {
+    .menuSection {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .menuHeader {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        height:200px;
+        margin-left: 0%;
+        margin-right: 20px;
+        justify-content: flex-start;
+    }
+    .btnMenuType {
+        width: 30vw;
+        height: 20px;
+        border-style: hidden;
+        color: rgb(44, 44, 44);
+        font-weight: bold;
+        font-size: 18px;
+        border-bottom: rgb(177, 175, 175);
+        border-bottom-style: hidden;
+        outline: none ;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .menuItem {
+        font-size: 20px;
+        height: 100px;
+        width: 220px;
+    }
+    .listItems{
+        margin:0%;
+        height: 250px;
+        width:95vw;
+        padding-inline-start: 20px;
+    }
+    .header{
+        font-size: 18px;
+    }
+    .listSelectedItems{
+        font-size: 20px;
+        width:75vw;
+        padding-inline-start: 0px;
+    }
+    .selectedItem {
+        width:90vw;
+    }
+  } 
+  
   
 /*-------------------Movil-----------------------------------*/
 @media only screen and (max-width: 730px) {

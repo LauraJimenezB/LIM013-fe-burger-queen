@@ -3,7 +3,7 @@ import {useState, React} from 'react';
 import { useHistory } from "react-router-dom";
 /* import App from './App' */
 /*  import firebase from "firebase/app"; */
-import {useFirebaseApp, useUser} from 'reactfire';
+import {useFirebaseApp} from 'reactfire';
 /* import {firebaseConfig} from './firebase.js'; */
 //modulo de autenticación
 import 'firebase/auth';
@@ -14,11 +14,8 @@ import 'firebase/auth';
 
 //al mismo tiempo que firebase crea un usuario, guarda una sesion localmente de ese usuario
 export function Registro(props) {
-const [ emailM, setEmailM ] = useState('');
-const [ passwordM, setPasswordM ] = useState('');
-
-const [ emailJ, setEmailJ ] = useState('');
-const [ passwordJ, setPasswordJ ] = useState('');
+const [ email, setEmail ] = useState('');
+const [ password, setPassword ] = useState('');
 /* 
 const user = () => firebase.auth().currentUser; */
 //metodo auth que retorna un metodo auth
@@ -26,47 +23,27 @@ const user = () => firebase.auth().currentUser; */
 //me retorna una promesa (uso async y await, para decirle al programa que estoy esperando su finalizacion)
 
 const firebase=useFirebaseApp();
-const user = useUser();
 
-
-const registroM = async ()=> {
-   await firebase.auth().createUserWithEmailAndPassword(emailM,passwordM)
+const registro = async ()=> {
+   await firebase.auth().createUserWithEmailAndPassword(email,password)
   
 }
 
-const registroJ = async ()=> {
-  await firebase.auth().createUserWithEmailAndPassword(emailJ,passwordJ)
- 
-}
-
-function PushIniciodeSesionM() {
+function PushIniciodeSesion() {
 
   let history = useHistory();
 
   function clickAgainInicio() {
     history.push("/");
   }
-  registroM();
+  registro();
   return (
     <button className="botonIngresarCocina" type="submit" onClick={clickAgainInicio}>
       Registro
     </button>
   );
 }
-function PushIniciodeSesionJ() {
 
-  let history = useHistory();
-
-  function clickAgainInicio() {
-    history.push("/");
-  }
-  registroJ();
-  return (
-    <button className="botonIngresarCocina" type="submit" onClick={clickAgainInicio}>
-      Registro
-    </button>
-  );
-  }
 /* const login = async ()=> {
   await firebase.auth().signInWithEmailAndPassword(email,password)
  
@@ -97,21 +74,16 @@ function PushIniciodeSesionJ() {
             .target referencia al documento de html que haya disparado el evento de cambio
             el valor del control se obtiene con value */}
            <input className="meseroRegistro" type="text" placeholder="Nombre" id="nameRegistroUserM"/>
-           <input className="meseroRegistro" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmailM(ev.target.value)} id="emailRegistroUserM"/>
-           <input className="meseroRegistro" type="text" placeholder="Contraseña"  onChange={ (ev)=> setPasswordM(ev.target.value)} id="passwordRegistroUserM"/>
-           {user.data &&
-           <PushIniciodeSesionM/>
-            }
+           <input className="meseroRegistro" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmail(ev.target.value)} id="emailRegistroUserM"/>
+           <input className="meseroRegistro" type="text" placeholder="Contraseña"  onChange={ (ev)=> setPassword(ev.target.value)} id="passwordRegistroUserM"/>
+           <PushIniciodeSesion/>
           </div>
-          
           <div className="user">
            <h2>Jefe de cocina</h2>
            <input className="meseroRegistro" type="text" placeholder="Nombre" id="nameRegistroUserJ"/>
-           <input className="cocinaIngreso" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmailJ(ev.target.value)} id="emailRegistroUserJ"/>
-           <input className="cocinaIngreso" type="text" placeholder="Contraseña" onChange={ (ev)=> setPasswordJ(ev.target.value)} id="passwordRegistroUserJ"/>
-           { user.data &&
-             <PushIniciodeSesionJ/>
-             }
+           <input className="cocinaIngreso" type="text" placeholder="Correo electrónico" onChange={ (ev)=> setEmail(ev.target.value)} id="emailRegistroUserJ"/>
+           <input className="cocinaIngreso" type="text" placeholder="Contraseña" onChange={ (ev)=> setPassword(ev.target.value)} id="passwordRegistroUserJ"/>
+          <PushIniciodeSesion/>
 
            </div>
            </main>

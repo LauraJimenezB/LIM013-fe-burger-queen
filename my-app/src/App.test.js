@@ -12,7 +12,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
  
 import Cocina from './cocina.js';
-/*
+/*import Order from './order.js';
+
 const setSelectedItems = () => {
   return;
 }
@@ -27,5 +28,9 @@ const selectedItems = [{id:'123', nombre:'Hola', precio:'12', total:'15'}, {id:'
 describe('Cocina', () => {
   test('renders Order component', () => {
     render(<Cocina/>);
+    /*
+    render(<Order selectedItems={selectedItems} setSelectedItems={setSelectedItems} 
+      updateItemHandler={updateItem} deleteItemHandler={deleteItem}/>);
+      */
   })
 });
