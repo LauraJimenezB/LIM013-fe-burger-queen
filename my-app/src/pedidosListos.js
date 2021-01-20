@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 
 
-export function PedidosListos() {
+export function PedidosListos(props) {
 
     let history = useHistory();
   
@@ -10,8 +10,9 @@ export function PedidosListos() {
     }
   
     return (
-      <button type="submit" onClick={handleClickListos}>
+      <button type="submit" onClick={handleClickListos} className='btnHeader1'>
         Pedidos Listos
       </button>
+      
     );
   }
