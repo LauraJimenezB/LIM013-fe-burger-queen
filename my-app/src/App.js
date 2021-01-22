@@ -36,48 +36,40 @@ import { React } from 'react';
 // import {useCollection} from 'react-firebase-hooks/firestore';
 
 import { Mesero } from './mesero.js'
-import { NavMenu } from './navMenu.js'
 import { Cocina } from './cocina.js'
-import { Home } from './home.js'
 import { Hola } from './vistaPedidosListos.js'
-import { Registro } from './Auth.jsx'
+import { SignUp } from './signUp.js'
+import { LogIn } from './logIn.js'
 /* import {useFirebaseApp} from 'reactfire'; */
 
  /*  const firebase = useFirebaseApp();
   console.log(firebase); */
 import { CocinaEnviados } from "./cocinaEnviados.js";
+import { AuthProvider } from "./AuthContext.js";
+import PrivateRoute from './privateRoute.js'
 
 export default function App(props) {
   return (
-    <Router>
+    <AuthProvider>
+      <Router>
       <div>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/Mesero">
-            <Mesero />
+          <PrivateRoute exact path='/Mesero' component={Mesero}/>
+          <PrivateRoute exact path='/Cocina' component={Cocina}/>
+          <PrivateRoute exact path='/CocinaEnviados' component={CocinaEnviados}/>
+          <PrivateRoute exact path='/vistaPedidosListos' component={Hola}/>
+          <Route path="/signUp">
+            <SignUp/>
           </Route>
-          <Route path="/Mesero1">
-            <NavMenu />
-          </Route>
-          <Route path="/Cocina">
-            <Cocina />
-          </Route>
-          <Route path="/CocinaEnviados">
-            <CocinaEnviados/>
-          </Route>
-          <Route path="/vistaPedidosListos">
-            <Hola/>
-          </Route>
-          <Route path="/registro">
-            <Registro/>
-          </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/logIn">
+            <LogIn/>
           </Route>
         </Switch>
       </div>
     </Router>
+    </AuthProvider>
   );
 }

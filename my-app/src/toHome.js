@@ -1,17 +1,30 @@
 import { useHistory } from "react-router-dom";
-import logOut from './logOut.svg';
+import logOutPic from './logOut.svg';
+import React, {useState} from 'react';
+import {useAuth} from './AuthContext';
 
 export function Home() {
-
+    const [error, setError] = useState('');
     let history = useHistory();
+    const {currentUser, logOut} = useAuth();
   
-    function handleClickHome() {
-      history.push("/");
+    async function handleLogOut() {
+      setError('');
+      try {
+        await logOut();
+        history.push("/logIn");
+      } catch {
+        setError('Error al cerrar sesión')
+      }
     }
   
-    return (
-      <button type="submit" onClick={handleClickHome} className='btnHeader2'>
-        <img src={logOut} className="btn-log-out" alt="logout"/>
-      </button>
+    return ( 
+      <div>
+        {error && <span>{error}</span>}
+        <span>{currentUser.email}</span>
+        <button type="submit" onClick={handleLogOut} className='btnHeader2'>
+          <img src={logOutPic} className="btn-log-out" alt="logout"/>
+        </button>
+      </div>
     );
   }
