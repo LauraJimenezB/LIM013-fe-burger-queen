@@ -20,8 +20,6 @@ export function Home() {
   
     return ( 
       <div>
-        {error && <span>{error}</span>}
-        <span>{currentUser.email}</span>
         <button type="submit" onClick={handleLogOut} className='btnHeader2'>
           <img src={logOutPic} className="btn-log-out" alt="logout"/>
         </button>

@@ -11,7 +11,7 @@ export function ToPedidosEnviados() {
   
     return (
       <button type="submit" onClick={handleClickToMenu} className='btnHeader3'>
-        Pedidos Listos
+        Historial
       </button>
     );
   }

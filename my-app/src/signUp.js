@@ -42,6 +42,7 @@ export function SignUp () {
         <main className='signUpMain'>
             <section className='signUpSection1'>
                 <h1>BURGER QUEEN </h1>
+                <span>Crea una cuenta</span>
             </section>
             <section className='signUpSection2'>
             {error && <div>{error}</div>}
